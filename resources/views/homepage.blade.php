@@ -315,7 +315,9 @@
           Discover handpicked products and services that keep tails wagging and purrs coming.
         </p>
         <h2 class="text-4xl md:text-5xl font-display font-bold leading-tight mb-6">
+          <span class="text-accent">
           A vacation for your pet – complete with cuddles, playtime, and dreamy naps!
+          </span>
         </h2>
         
       </div>
