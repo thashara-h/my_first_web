@@ -336,11 +336,11 @@
   </section>
 
   <!-- parent1 -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-gradient-to-br from-light to-accent">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16" data-aos="fade-up">
+      <div class="text-center mb-16"  data-aos="fade-up">
         <h3 class="text-3xl font-display font-bold mb-4">Happy Pets, Happy Parents</h3>
-        <p class="text-gray-600 max-w-2xl mx-auto">What our customers say about us</p>
+        <p class="text-light max-w-2xl mx-auto">What our customers say about us</p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -399,7 +399,7 @@
   </section>
 
   <!-- start shopping-->
-  <section class="py-20 bg-gradient-to-br from-accent to-light text-white">
+  <section class="py-20 bg-gradient-to-br from-light to-primary text-white">
     <div class="md:w-1/2" data-aos="fade-left">
         <div class="relative">
           <div class="absolute -top-2 -left-6 w-64 h-64 bg-accent rounded-full opacity-20"></div>
