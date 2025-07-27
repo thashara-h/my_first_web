@@ -113,75 +113,264 @@
     </div>
   </div>
 </header>
-<!-- Footer -->
-  <footer class="bg-dark text-gray-400 py-12">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
-      <!-- Column 1 -->
-      <div>
-        <div class="flex items-center space-x-2 mb-4">
-          <div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
-            <span class="text-white text-sm">🐾</span>
-          </div>
-          <h4 class="text-white font-display font-bold text-lg">PawMart</h4>
-        </div>
-        <p class="text-sm mb-4">Premium pet care products and services for your furry family members.</p>
-        <div class="flex space-x-4">
-          <a href="#" class="text-gray-400 hover:text-white transition">
-            <span class="sr-only">Facebook</span>
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
-            </svg>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white transition">
-            <span class="sr-only">Instagram</span>
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748 1.15.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
-            </svg>
-          </a>
-        </div>
-      </div>
-      
-      <!-- Column 2 -->
-      <div>
-        <h5 class="text-white font-semibold mb-4">Shop</h5>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-sm hover:text-white transition">Dog Supplies</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">Cat Supplies</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">Small Pets</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">Bird Supplies</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">New Arrivals</a></li>
-        </ul>
-      </div>
-      
-      <!-- Column 3 -->
-      <div>
-        <h5 class="text-white font-semibold mb-4">Services</h5>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-sm hover:text-white transition">Grooming</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">Veterinary</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">Training</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">Pet Sitting</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">Nutrition Plans</a></li>
-        </ul>
-      </div>
-      
-      <!-- Column 4 -->
-      <div>
-        <h5 class="text-white font-semibold mb-4">Company</h5>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-sm hover:text-white transition">About Us</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">Careers</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">Blog</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">Contact</a></li>
-          <li><a href="#" class="text-sm hover:text-white transition">FAQ</a></li>
-        </ul>
-      </div>
-    </div>
+
+
+
     
-    <div class="max-w-7xl mx-auto px-6 pt-8 mt-8 border-t border-gray-800">
-      <p class="text-sm text-center">&copy; 2025 PawMart. All rights reserved.</p>
+
+    <!-- Page Title -->
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">About Us</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Dedicated to providing the best care for your beloved pets through innovative services and quality products.
+            </p>
+        </div>
     </div>
-  </footer>
+
+    <!-- Mission Section -->
+    <section class="hero-overlay py-20 bg-gradient-to-b from-white to-">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-accent mb-8">OUR MISSION</h2>
+                </div>
+                <div class="space-y-6">
+                    <p class="text-accent text-lg leading-relaxed">
+                        Collaboratively administrate empowered markets via plug-and-play networks. 
+                        Dynamically procrastinate B2C users after installed base benefits. Dramatically 
+                        visualize customer directed convergence without revolutionary ROI.
+                    </p>
+                    <p class="text-grey text-lg leading-relaxed">
+                        Efficiently unleash cross-media information without cross-media value. Quickly 
+                        maximize timely deliverables for real-time schemas. Dramatically maintain 
+                        clicks-and-mortar solutions without functional solutions.
+                    </p>
+                    <p class="text-accent text-lg leading-relaxed">
+                        We strive to make pet care accessible, convenient, and reliable for every pet owner, 
+                        whether you have dogs, cats, parrots, or other beloved birds. Our platform connects 
+                        you with trusted services and premium pet food tailored to your pet's specific needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="relative py-20 bg-cover bg-center" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 600%22><rect fill=%22%23f3f4f6%22 width=%221200%22 height=%22600%22/><rect fill=%22%23e5e7eb%22 x=%22100%22 y=%22100%22 width=%22200%22 height=%22150%22 rx=%2210%22/><rect fill=%22%23d1d5db%22 x=%22350%22 y=%22200%22 width=%22180%22 height=%22120%22 rx=%2210%22/><rect fill=%22%23e5e7eb%22 x=%22580%22 y=%22150%22 width=%22160%22 height=%22180%22 rx=%2210%22/><rect fill=%22%23d1d5db%22 x=%22800%22 y=%22180%22 width=%22140%22 height=%22140%22 rx=%2210%22/><circle fill=%22%23f59e0b%22 cx=%22200%22 cy=%22400%22 r=%2230%22/><circle fill=%22%23ef4444%22 cx=%22450%22 cy=%22450%22 r=%2225%22/><circle fill=%22%2310b981%22 cx=%22650%22 cy=%22380%22 r=%2228%22/></svg>');">
+        <div class="vision-overlay absolute inset-0 bg-gradient-to-b from-light to-primary"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-8">OUR VISION</h2>
+                </div>
+                <div class="space-y-6">
+                    <p class="text-white text-lg leading-relaxed">
+                        Collaboratively administrate empowered markets via plug-and-play networks. 
+                        Dynamically procrastinate B2C users after installed base benefits. Dramatically 
+                        visualize customer directed convergence without revolutionary ROI.
+                    </p>
+                    <p class="text-white text-lg leading-relaxed">
+                        Efficiently unleash cross-media information without cross-media value. Quickly 
+                        maximize timely deliverables for real-time schemas. Dramatically maintain 
+                        clicks-and-mortar solutions without functional solutions.
+                    </p>
+                    <p class="text-white text-lg leading-relaxed">
+                        To become the leading digital platform for pet care services, creating a world 
+                        where every pet receives the love, care, and attention they deserve through 
+                        innovative technology and passionate service.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 bg-gradient-to-b from-primary to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-8">OUR VALUES</h2>
+                </div>
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                        <p class="text-gray-700 text-lg">
+                            <strong>Pet-First Approach:</strong> Every decision we make prioritizes the health, 
+                            safety, and happiness of pets across all categories - dogs, cats, parrots, and birds.
+                        </p>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                        <p class="text-gray-700 text-lg">
+                            <strong>Quality Assurance:</strong> We partner only with certified professionals 
+                            and premium brands to ensure the highest standards of care and nutrition.
+                        </p>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                        <p class="text-gray-700 text-lg">
+                            <strong>Convenience & Accessibility:</strong> Making pet care services and quality 
+                            food easily accessible through our user-friendly platform.
+                        </p>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                        <p class="text-gray-700 text-lg">
+                            <strong>Community Building:</strong> Fostering a supportive community of pet 
+                            owners who share knowledge, experiences, and love for their animal companions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Meet Our Team</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Passionate pet lovers and industry experts dedicated to revolutionizing pet care services.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="text-center group">
+                    <div class="relative mb-6">
+                        <div class="w-48 h-48 mx-auto bg-gray-300 rounded-lg overflow-hidden">
+                            <div class="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                                <span class="text-white text-6xl">👨‍💼</span>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white bg-gray-800 py-2 px-4 rounded-lg inline-block">
+                        Raymond Bell
+                    </h3>
+                    <p class="text-gray-600 mt-2">CEO & Founder</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="text-center group">
+                    <div class="relative mb-6">
+                        <div class="w-48 h-48 mx-auto bg-gray-300 rounded-lg overflow-hidden">
+                            <div class="w-full h-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                                <span class="text-white text-6xl">👩‍💻</span>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white bg-gray-800 py-2 px-4 rounded-lg inline-block">
+                        Janet Weaver
+                    </h3>
+                    <p class="text-gray-600 mt-2">Lead Veterinarian</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="text-center group">
+                    <div class="relative mb-6">
+                        <div class="w-48 h-48 mx-auto bg-gray-300 rounded-lg overflow-hidden">
+                            <div class="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                                <span class="text-white text-6xl">👨‍🔬</span>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white bg-gray-800 py-2 px-4 rounded-lg inline-block">
+                        Louis Smith
+                    </h3>
+                    <p class="text-gray-600 mt-2">Pet Nutrition Specialist</p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="text-center group">
+                    <div class="relative mb-6">
+                        <div class="w-48 h-48 mx-auto bg-gray-300 rounded-lg overflow-hidden">
+                            <div class="w-full h-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center">
+                                <span class="text-white text-6xl">👩‍💼</span>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white bg-gray-800 py-2 px-4 rounded-lg inline-block">
+                        Grace Dunbar
+                    </h3>
+                    <p class="text-gray-600 mt-2">Customer Experience Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="bg-blue-600 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Ready to Give Your Pet the Best Care?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Join thousands of pet owners who trust PetCare Pro for their pet's health, happiness, and nutrition needs.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Book a Service
+                </button>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                    Shop Pet Food
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">🐾</span>
+                        </div>
+                        <span class="text-xl font-bold">PawMart</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Your trusted partner in pet care, serving dogs, cats, parrots, and birds with love and expertise.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pet Food</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Pet Grooming</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Veterinary Care</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pet Sitting</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Training</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>📧 info@pawmart.com</li>
+                        <li>📞 +94 414267844</li>
+                        <li>📍 123 Pet Care Avenue</li>
+                        <li>⏰ Mon-Fri: 8AM-8PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 PawMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
