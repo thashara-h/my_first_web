@@ -17,7 +17,7 @@
                         petblue: '#02127bff',
                         petpurple: '#07a6a6',
                         primary: '#5a058f', 
-                        accent: '#8d9494',   
+                        accent: '#8d9494',  
                         light: '#07a6a6',
                         dark: '#1F1A36',
                     }
@@ -85,6 +85,7 @@
           </a>
         </li>
       </ul>
+      
     </nav>
 
     <!-- Right side elements -->
@@ -131,9 +132,9 @@
                             </a>
                             
                             <!-- Orders -->
-                            <a href="/orders" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg text-petgreen-600 hover:bg-cyan-600 hover:text-gray-900 dark:text-purple-300 dark:hover:bg-cyan-700 dark:hover:text-purple-100">
+                            <a href="/cart" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg text-petgreen-600 hover:bg-cyan-600 hover:text-gray-900 dark:text-purple-300 dark:hover:bg-cyan-700 dark:hover:text-purple-100">
                             <i class="fas fa-shopping-cart mr-3 text-yellow-600 dark:text-yellow-400"></i>
-                             Orders
+                             Cart
                             </a>
                             
                             <!-- Health -->
@@ -142,6 +143,8 @@
                             Pet Health
                             </a>
 
+      
+                            
                             
                             
                         </nav>

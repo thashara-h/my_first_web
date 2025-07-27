@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PawMart – Premium Pet Care</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-  <script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation | PetCare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+      <script>
     tailwind.config = {
       theme: {
         extend: {
@@ -26,8 +26,9 @@
       }
     }
   </script>
-<body class="bg-white">
-  <header class="bg-light shadow-lg sticky top-0 z-50  bg-opacity-4">
+</head>
+<body class="bg-gray-50">
+    <header class="bg-light shadow-lg sticky top-0 z-50  bg-opacity-4">
   <div class="max-w-8xl mx-auto px-6 py-3 flex justify-between items-center">
     <!-- Logo -->
     <div class="flex items-center space-x-3 group">
@@ -121,64 +122,55 @@
         <div class="flex justify-between items-center mb-8 relative">
             <div class="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -z-10"></div>
             <div class="flex flex-col items-center">
-                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">1</div>
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">✓</div>
                 <span class="mt-2 text-sm font-medium text-indigo-600">Cart</span>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold">2</div>
-                <span class="mt-2 text-sm font-medium text-gray-500">Shipping</span>
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">✓</div>
+                <span class="mt-2 text-sm font-medium text-indigo-600">Shipping</span>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold">3</div>
-                <span class="mt-2 text-sm font-medium text-gray-500">Payment</span>
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">✓</div>
+                <span class="mt-2 text-sm font-medium text-indigo-600">Payment</span>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold">4</div>
-                <span class="mt-2 text-sm font-medium text-gray-500">Confirm</span>
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">4</div>
+                <span class="mt-2 text-sm font-medium text-indigo-600">Confirm</span>
             </div>
         </div>
 
-        <!-- Cart Content -->
-        <div class="bg-gray-200 rounded-lg shadow-md p-6">
-            <h2 class="text-xl font-bold mb-6">Your Selected Services</h2>
+        <div class="bg-gray-200 rounded-lg shadow-md p-8 text-center">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-check text-green-600 text-3xl"></i>
+            </div>
             
-            <!-- Basic Service -->
-            <div class="border-b pb-4 mb-4">
-                <h3 class="font-semibold text-lg">Basic Grooming Package</h3>
-                <div class="flex justify-between mt-2">
-                    <div>
-                        <p class="text-gray-600">Coverstock treatment</p>
-                        <p class="text-gray-600">Cover slide</p>
+            <h2 class="text-2xl font-bold mb-2">Order Confirmed!</h2>
+            <p class="text-gray-600 mb-6">Thank you for your purchase. Your order #PET2023-456 has been confirmed.</p>
+            
+            <div class="bg-gray-50 p-6 rounded-lg text-left max-w-md mx-auto mb-8">
+                <h3 class="font-semibold mb-4">Order Details</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Basic Grooming Package</span>
+                        <span>$100</span>
                     </div>
-                    <span class="font-bold">$100</span>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Discount</span>
+                        <span class="text-green-600">-$30</span>
+                    </div>
+                    <div class="flex justify-between font-bold border-t border-gray-200 pt-3 mt-3">
+                        <span>Total Paid</span>
+                        <span>$170</span>
+                    </div>
                 </div>
             </div>
-
-            <!-- Order Summary -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="font-semibold mb-2">Order Summary</h3>
-                <div class="flex justify-between mb-1">
-                    <span>Subtotal</span>
-                    <span>$200</span>
-                </div>
-                <div class="flex justify-between mb-1 text-green-600">
-                    <span>Discount</span>
-                    <span>-$30</span>
-                </div>
-                <div class="flex justify-between mb-1">
-                    <span>Shipping</span>
-                    <span>FREE</span>
-                </div>
-                <div class="flex justify-between font-bold text-lg mt-3">
-                    <span>Total</span>
-                    <span>$170</span>
-                </div>
-            </div>
-
-            <!-- Proceed Button -->
-            <div class="mt-6">
-                <a href="/shipping" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-md text-center transition duration-200">
-                    Proceed to Checkout
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-md transition duration-200">
+                    Back to Home
+                </a>
+                <a href="/orders" class="border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium py-2 px-6 rounded-md transition duration-200">
+                    View Order Details
                 </a>
             </div>
         </div>

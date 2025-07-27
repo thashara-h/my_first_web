@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PawMart – Premium Pet Care</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-  <script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | PetCare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+          
     tailwind.config = {
       theme: {
         extend: {
@@ -25,9 +26,11 @@
         }
       }
     }
-  </script>
-<body class="bg-white">
-  <header class="bg-light shadow-lg sticky top-0 z-50  bg-opacity-4">
+  
+    </script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-light shadow-lg sticky top-0 z-50  bg-opacity-4">
   <div class="max-w-8xl mx-auto px-6 py-3 flex justify-between items-center">
     <!-- Logo -->
     <div class="flex items-center space-x-3 group">
@@ -121,16 +124,16 @@
         <div class="flex justify-between items-center mb-8 relative">
             <div class="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -z-10"></div>
             <div class="flex flex-col items-center">
-                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">1</div>
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">✓</div>
                 <span class="mt-2 text-sm font-medium text-indigo-600">Cart</span>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold">2</div>
-                <span class="mt-2 text-sm font-medium text-gray-500">Shipping</span>
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">✓</div>
+                <span class="mt-2 text-sm font-medium text-indigo-600">Shipping</span>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold">3</div>
-                <span class="mt-2 text-sm font-medium text-gray-500">Payment</span>
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">3</div>
+                <span class="mt-2 text-sm font-medium text-indigo-600">Payment</span>
             </div>
             <div class="flex flex-col items-center">
                 <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold">4</div>
@@ -138,48 +141,77 @@
             </div>
         </div>
 
-        <!-- Cart Content -->
-        <div class="bg-gray-200 rounded-lg shadow-md p-6">
-            <h2 class="text-xl font-bold mb-6">Your Selected Services</h2>
-            
-            <!-- Basic Service -->
-            <div class="border-b pb-4 mb-4">
-                <h3 class="font-semibold text-lg">Basic Grooming Package</h3>
-                <div class="flex justify-between mt-2">
-                    <div>
-                        <p class="text-gray-600">Coverstock treatment</p>
-                        <p class="text-gray-600">Cover slide</p>
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Payment Form -->
+            <div class="md:w-2/3">
+                <div class="bg-gray-200 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold mb-6">Payment Method</h2>
+                    
+                    <div class="flex mb-6 border-b">
+                        <button class="px-4 py-2 font-medium text-indigo-600 border-b-2 border-indigo-600">Credit Card</button>
+                        <button class="px-4 py-2 font-medium text-gray-500">PayPal</button>
                     </div>
-                    <span class="font-bold">$100</span>
+                    
+                    <form>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Cardholder Name</label>
+                            <input type="text" class="w-full px-3 py-2 border rounded-md">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Card Number</label>
+                            <div class="relative">
+                                <input type="text" class="w-full px-3 py-2 border rounded-md" placeholder="1234 5678 9012 3456">
+                                <div class="absolute right-3 top-2">
+                                    <i class="fab fa-cc-visa text-2xl text-blue-800"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Expiration Date</label>
+                                <input type="text" class="w-full px-3 py-2 border rounded-md" placeholder="MM/YY">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">CVC</label>
+                                <input type="text" class="w-full px-3 py-2 border rounded-md" placeholder="123">
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <a href="/shipping" class="text-indigo-600 font-medium">← Return to Shipping</a>
+                            <a href="/confirmation" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-md transition duration-200">
+                                Pay Now
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
-
+            
             <!-- Order Summary -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="font-semibold mb-2">Order Summary</h3>
-                <div class="flex justify-between mb-1">
-                    <span>Subtotal</span>
-                    <span>$200</span>
+            <div class="md:w-1/3">
+                <div class="bg-gray-200 rounded-lg shadow-md p-6 sticky top-4">
+                    <h3 class="text-lg font-semibold mb-4">Order Summary</h3>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Subtotal</span>
+                            <span>$200</span>
+                        </div>
+                        <div class="flex justify-between text-green-600">
+                            <span>Discount</span>
+                            <span>-$30</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Shipping</span>
+                            <span>FREE</span>
+                        </div>
+                        <div class="border-t border-gray-200 pt-3 flex justify-between font-bold text-lg">
+                            <span>Total</span>
+                            <span class="text-indigo-600">$170</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex justify-between mb-1 text-green-600">
-                    <span>Discount</span>
-                    <span>-$30</span>
-                </div>
-                <div class="flex justify-between mb-1">
-                    <span>Shipping</span>
-                    <span>FREE</span>
-                </div>
-                <div class="flex justify-between font-bold text-lg mt-3">
-                    <span>Total</span>
-                    <span>$170</span>
-                </div>
-            </div>
-
-            <!-- Proceed Button -->
-            <div class="mt-6">
-                <a href="/shipping" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-md text-center transition duration-200">
-                    Proceed to Checkout
-                </a>
             </div>
         </div>
     </div>

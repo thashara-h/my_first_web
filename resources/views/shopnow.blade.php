@@ -182,11 +182,13 @@
     <!-- Popup Content -->
     <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4 relative transform transition-all duration-300 scale-95 opacity-0" id="popupContent">
       <!-- Close Button -->
+       <a href="/homepage">
       <button id="closePopup" class="absolute top-4 right-4 text-gray-400 hover:text-primary transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
+      </a>
       
       <!-- Popup Body -->
       <div class="text-center">
@@ -203,7 +205,7 @@
         
         <!-- Action Buttons -->
         <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="/signup"><button id="joinNowButton" class="px-6 py-3 bg-gradient-to-r from-primary to-light text-white font-medium rounded-lg hover:opacity-90 transition-all shadow-md transform hover:scale-105">
+          <a href="/register"><button id="joinNowButton" class="px-6 py-3 bg-gradient-to-r from-primary to-light text-white font-medium rounded-lg hover:opacity-90 transition-all shadow-md transform hover:scale-105">
             Sign Up Now
           </button></a>
           <a href="/homepage"><button id="laterButton" class="px-6 py-3 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-all">

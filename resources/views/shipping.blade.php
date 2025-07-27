@@ -26,8 +26,51 @@
       }
     }
   </script>
-<body class="bg-white">
-  <header class="bg-light shadow-lg sticky top-0 z-50  bg-opacity-4">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800&display=swap');
+  
+        .paw-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 30c0-3.3-2.7-6-6-6s-6 2.7-6 6c0 1.3.4 2.5 1.1 3.5l3.9 5.4c.3.4.8.6 1.3.6s1-.2 1.3-.6l3.9-5.4c.7-1 1.1-2.2 1.1-3.5zm-6-2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-animation-delayed {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .bounce-in {
+            animation: bounceIn 1s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(2.4); opacity: 0; }
+        }
+    
+  </style>
+</head>
+<body class="bg-white  to-white">
+    <header class="bg-light shadow-lg sticky top-0 z-50  bg-opacity-4">
   <div class="max-w-8xl mx-auto px-6 py-3 flex justify-between items-center">
     <!-- Logo -->
     <div class="flex items-center space-x-3 group">
@@ -121,12 +164,12 @@
         <div class="flex justify-between items-center mb-8 relative">
             <div class="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -z-10"></div>
             <div class="flex flex-col items-center">
-                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">1</div>
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">✓</div>
                 <span class="mt-2 text-sm font-medium text-indigo-600">Cart</span>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold">2</div>
-                <span class="mt-2 text-sm font-medium text-gray-500">Shipping</span>
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">2</div>
+                <span class="mt-2 text-sm font-medium text-indigo-600">Shipping</span>
             </div>
             <div class="flex flex-col items-center">
                 <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold">3</div>
@@ -138,49 +181,44 @@
             </div>
         </div>
 
-        <!-- Cart Content -->
         <div class="bg-gray-200 rounded-lg shadow-md p-6">
-            <h2 class="text-xl font-bold mb-6">Your Selected Services</h2>
+            <h2 class="text-xl font-bold mb-6">Shipping Information</h2>
             
-            <!-- Basic Service -->
-            <div class="border-b pb-4 mb-4">
-                <h3 class="font-semibold text-lg">Basic Grooming Package</h3>
-                <div class="flex justify-between mt-2">
+            <form>
+                <div class="grid grid-cols-2 gap-4 mb-4">
                     <div>
-                        <p class="text-gray-600">Coverstock treatment</p>
-                        <p class="text-gray-600">Cover slide</p>
+                        <label class="block text-gray-700 mb-2">First Name</label>
+                        <input type="text" class="w-full px-3 py-2 border rounded-md">
                     </div>
-                    <span class="font-bold">$100</span>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Last Name</label>
+                        <input type="text" class="w-full px-3 py-2 border rounded-md">
+                    </div>
                 </div>
-            </div>
-
-            <!-- Order Summary -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="font-semibold mb-2">Order Summary</h3>
-                <div class="flex justify-between mb-1">
-                    <span>Subtotal</span>
-                    <span>$200</span>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Address</label>
+                    <input type="text" class="w-full px-3 py-2 border rounded-md">
                 </div>
-                <div class="flex justify-between mb-1 text-green-600">
-                    <span>Discount</span>
-                    <span>-$30</span>
+                
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label class="block text-gray-700 mb-2">City</label>
+                        <input type="text" class="w-full px-3 py-2 border rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">ZIP Code</label>
+                        <input type="text" class="w-full px-3 py-2 border rounded-md">
+                    </div>
                 </div>
-                <div class="flex justify-between mb-1">
-                    <span>Shipping</span>
-                    <span>FREE</span>
+                
+                <div class="flex justify-between">
+                    <a href="/cart" class="text-indigo-600 font-medium">← Return to Cart</a>
+                    <a href="/payment" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-md transition duration-200">
+                        Continue to Payment
+                    </a>
                 </div>
-                <div class="flex justify-between font-bold text-lg mt-3">
-                    <span>Total</span>
-                    <span>$170</span>
-                </div>
-            </div>
-
-            <!-- Proceed Button -->
-            <div class="mt-6">
-                <a href="/shipping" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-md text-center transition duration-200">
-                    Proceed to Checkout
-                </a>
-            </div>
+            </form>
         </div>
     </div>
     <footer class="bg-gray-900 text-white py-12">

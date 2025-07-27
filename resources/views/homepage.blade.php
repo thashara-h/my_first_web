@@ -486,10 +486,10 @@
       <h3 class="text-4xl md:text-5xl font-display font-bold leading-tight mb-6">Ready to Pamper Your Pet?</h3>
       <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">Join thousands of happy pets enjoying PawMart's premium care products</p>
       <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-        <a href="#" class="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition">
+        <a href="/products" class="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition">
           Start Shopping
         </a>
-        <a href="#" class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold text-lg transition">
+        <a href="services" class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold text-lg transition">
           Book a Consultation
         </a>
       </div>

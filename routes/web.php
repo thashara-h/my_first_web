@@ -79,18 +79,34 @@ Route::get('/bookings', function () {
 Route::get('/orders', function () {
     return view('orders');
 });
-Route::get('/landing', function () {
+Route::get('/landing', function () {//not important
     return view('landing');
+});
+Route::get('/payment', function () {//not important
+    return view('payment');
+});
+Route::get('/confirmation', function () {//not important
+    return view('confirmation');
 });
 Route::get('/pethealth', function () {
     return view('pethealth');
 });
-Route::get('/settings', function () {
+Route::get('/settings', function () {//settings
     return view('settings');
+});
+Route::get('/message', function () {//settings
+    return view('message');
+});
+Route::get('/orderconfirm', function () {//settings
+    return view('orderconfirm');
 });
 
 Route::get('/backend.admindashboard', function () {
     return view('backend.admindashboard');
+});
+
+Route::get('/shipping', function () {
+    return view('shipping');
 });
 
 Route::get('/dashboard', function () {

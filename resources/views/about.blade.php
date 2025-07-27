@@ -91,7 +91,7 @@
       <!-- Auth Buttons - Creative Pet Bowl Inspired -->
       <div class="hidden md:flex items-center space-x-3">
         <!-- Login - Fish Bone Button -->
-        <a href="#" class="relative px-4 py-2 text-purple-600 font-medium group transition-all">
+        <a href="/login" class="relative px-4 py-2 text-purple-600 font-medium group transition-all">
           <span class="relative z-10 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
@@ -311,14 +311,14 @@
             <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
                 Join thousands of pet owners who trust PetCare Pro for their pet's health, happiness, and nutrition needs.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                    Book a Service
-                </button>
-                <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-                    Shop Pet Food
-                </button>
-            </div>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <a href="/products" class="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition">
+          Start Shopping
+        </a>
+        <a href="services" class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold text-lg transition">
+          Book a Consultation
+        </a>
+      </div>
         </div>
     </section>
 

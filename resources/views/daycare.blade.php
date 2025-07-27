@@ -431,9 +431,9 @@
                 
                 <!-- Submit Button -->
                 <div class="md:col-span-2">
-                    <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-bold py-3 px-4 rounded transition duration-200">
-                        Submit Registration
-                    </button>
+                               <a href="/orderconfirm" class="w-full bg-primary hover:bg-dark text-white font-bold py-3 px-4 rounded transition duration-200">
+         Submit Registration
+        </a>
                 </div>
             </form>
         </section>

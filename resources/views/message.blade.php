@@ -36,20 +36,10 @@
         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
       </svg>
     </div>
-    <h1 class="text-3xl font-display font-bold text-primary mb-4">Appointment Confirmed!</h1>
-    <p class="mb-6">Thank you for your Appointment. Your booking <span class="font-semibold">#PAW12345</span> has been received.</p>
+    <h1 class="text-3xl font-display font-bold text-primary mb-4">Message sent!</h1>
+    <p class="mb-6">Thank you!</p>
     
-    <div class="bg-gray-50 rounded-lg p-4 mb-6 text-left">
-      <div class="flex justify-between py-2 border-b">
-        <span>Appointment Date:</span>
-        <span class="font-medium">June 15, 2023</span>
-      </div>
-      <div class="flex justify-between py-2 border-b">
-        <span>Total:</span>
-        <span class="font-display font-bold text-primary">$68.00</span>
-      </div>
-      
-    </div>
+   
 
     <div class="space-y-3">
       

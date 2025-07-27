@@ -7,14 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <script>
-    tailwind.config = {
+     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#78043c',  // Deep Purple
-            accent: '#8d9494',   // Vibrant Pink
-            light: '#06a0a8',
-            dark: '#1F1A36'
+            primary: '#5a058f', 
+            accent: '#8d9494',   
+            light: '#07a6a6',
+            dark: '#1F1A36',
+            
+                        
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],

@@ -91,7 +91,7 @@
       <!-- Auth Buttons - Creative Pet Bowl Inspired -->
       <div class="hidden md:flex items-center space-x-3">
         <!-- Login - Fish Bone Button -->
-        <a href="#" class="relative px-4 py-2 text-purple-600 font-medium group transition-all">
+        <a href="/login" class="relative px-4 py-2 text-purple-600 font-medium group transition-all">
           <span class="relative z-10 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
@@ -231,10 +231,11 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
                             <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your pet care needs..."></textarea>
                         </div>
-                        
-                        <button type="submit" class="w-full bg-light text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                            Send Message
-                        </button>
+                        <div>
+                                 <a href="/message" class="w-full bg-light text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                                 Send Message
+                                 </a>
+                                 </div>
                     </form>
                 </div>
 
