@@ -109,6 +109,10 @@ Route::get('/shipping', function () {
     return view('shipping');
 });
 
+Route::get('/backend.admindashboard', function () {
+    return view('backend.admindashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
