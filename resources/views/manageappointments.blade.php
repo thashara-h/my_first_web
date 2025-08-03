@@ -139,31 +139,10 @@
                         </a>
                         </div>
                         
-                        <!-- dogfood CRUD -->
+                        <!-- Products CRUD -->
                         <div class="px-4 py-2">
-                         <a href="/managedogfood" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
-                         <span><i class="fas fa-paw mr-3"></i> Manage Dog Food</span>
-                        </a>
-                        </div>
-
-                        <!-- catfood CRUD -->
-                        <div class="px-4 py-2">
-                         <a href="/managecatfood" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
-                         <span><i class="fas fa-paw mr-3"></i> Manage Cat Food</span>
-                        </a>
-                        </div>
-
-                        <!-- birdgood CRUD -->
-                        <div class="px-4 py-2">
-                         <a href="/managebirdfood" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
-                         <span><i class="fas fa-paw mr-3"></i> Manage Bird Food</span>
-                        </a>
-                        </div>
-
-                        <!-- otherfood CRUD -->
-                        <div class="px-4 py-2">
-                        <a href="/manageotherpetfood" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
-                        <span><i class="fas fa-paw mr-3"></i> Manage Other Food</span>
+                         <a href="/manageproducts" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Products</span>
                         </a>
                         </div>
 
@@ -295,63 +274,66 @@
                     
 
                     <!-- CRUD Content Sections -->
-                    <!-- Pets Section -->
-                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow p-6">
-                        <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Manage Pets</h2>
-                            <a href="/addpet" class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
-                            <i class="fas fa-plus mr-2"></i> Add New Pet
+                    <!-- Appointments Section -->
+
+                    <!-- resources/views/admin/orders/index.blade.php -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden border border-accent/10">
+    <div class="p-6">
+        <h2 class="text-2xl font-bold text-dark font-display mb-6">Manage Orders</h2>
+        
+        <div class="overflow-x-auto">
+            <table class="min-w-full">
+                <thead>
+                    <tr class="border-b border-accent/10">
+                        <th class="px-6 py-3 text-left text-dark font-display">Order #</th>
+                        <th class="px-6 py-3 text-left text-dark font-display">Customer</th>
+                        <th class="px-6 py-3 text-left text-dark font-display">Date</th>
+                        <th class="px-6 py-3 text-left text-dark font-display">Items</th>
+                        <th class="px-6 py-3 text-left text-dark font-display">Total</th>
+                        <th class="px-6 py-3 text-left text-dark font-display">Status</th>
+                        <th class="px-6 py-3 text-left text-dark font-display">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($orders as $order)
+                    <tr class="border-b border-accent/10 hover:bg-light/5">
+                        <td class="px-6 py-4">{{ $order->order_number }}</td>
+                        <td class="px-6 py-4">{{ $order->user->name }}</td>
+                        <td class="px-6 py-4">{{ $order->created_at->format('d M Y') }}</td>
+                        <td class="px-6 py-4">{{ count($order->items) }} items</td>
+                        <td class="px-6 py-4">Rs. {{ number_format($order->total, 2) }}</td>
+                        <td class="px-6 py-4">
+                            <form action="{{ route('admin.orders.update', $order->id) }}" method="POST" class="inline">
+                                @csrf
+                                @method('PATCH')
+                                <select name="status" onchange="this.form.submit()" 
+                                    class="px-2 py-1 rounded text-xs 
+                                    {{ $order->status === 'completed' ? 'bg-green-100 text-green-800' : 
+                                       ($order->status === 'pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800') }}">
+                                    <option value="pending" {{ $order->status === 'pending' ? 'selected' : '' }}>Pending</option>
+                                    <option value="processing" {{ $order->status === 'processing' ? 'selected' : '' }}>Processing</option>
+                                    <option value="completed" {{ $order->status === 'completed' ? 'selected' : '' }}>Completed</option>
+                                    <option value="cancelled" {{ $order->status === 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+                                </select>
+                            </form>
+                        </td>
+                        <td class="px-6 py-4">
+                            <a href="{{ route('admin.orders.show', $order->id) }}" class="text-primary hover:text-primary-dark mr-3">
+                                View
                             </a>
-                        </div>
-                        @if(Session::has('success'))
-                        <span class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded">{{Session::get('success')}}</span>
-                        @endif
-                         @if(Session::has('fail'))
-                        <span class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded">{{Session::get('fail')}}</span>
-                        @endif
-                        
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
-                                <thead class="bg-gray-50 dark:bg-gray-600">
-                                    <tr>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Id</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Name</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Breed</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Age</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Health status</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Registration Date</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Last Update</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider" colspan="2">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if(!empty($something) && count($something) > 0)
-
-                                      @foreach($all_pets as $item)
-                                        <tr>
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>{{$item->pet_name}}</td>
-                                            <td>{{$item->pet_type}}</td>
-                                            <td>{{$item->age}}</td>
-                                            <td>{{$item->health_status}}</td>
-                                            <td>{{$item->created_at}}</td>
-                                            <td>{{$item->updated_at}}</td>
-                                            <td><a href="/edit/{{$item->id}}" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Edit</a></td>
-                                            <td><a href="/delete/{{$item->id}}" class="text-red-600 hover:text-red-800 font-medium text-sm">Delete</a></td>
-                                        </tr>
-                                      @endforeach
-                                    @else
-                                    <tr>
-                                        <td colspan="9">No Pet Found!</td>
-                                    </tr>
-                                    @endif
-                                </tbody>
-                                
-                            </table>
-                        </div>
-                    </div>
-
-            </div>
+                            <a href="{{ route('order.invoice', $order->id) }}" class="text-accent hover:text-accent-dark mr-3">
+                                Invoice
+                            </a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        
+        {{ $orders->links() }}
+    </div>
+    </div>
 
             </main>
         </div>

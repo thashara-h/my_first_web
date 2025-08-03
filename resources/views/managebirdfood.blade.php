@@ -268,29 +268,10 @@
                     </nav>
                 </div>
             </div>
-
-            <!-- Content Area -->
+    <!-- Content Area -->
             <main class="p-6 bg-gradient-to-br from-petpurple to-petgreen dark:from-petpurple dark:to-gray-900">
                 <div class="max-w-7xl mx-auto">
-                    <!-- Header -->
-                    <div class="flex justify-between items-center mb-8">
-                        <h1 class="text-2xl font-bold text-gray-800 dark:text-white" x-text="getActiveSectionTitle()"></h1>
-                        <div class="flex space-x-3">
-                            <button class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 flex items-center">
-                                <i class="fas fa-download mr-2"></i> Export
-                            </button>
-                            <template x-if="activeCrudSection === 'pets'">
-                                <button @click="showAddPetModal = true" class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                    <i class="fas fa-plus mr-2"></i> Add New Pet
-                                </button>
-                            </template>
-                            <template x-if="activeCrudSection === 'users'">
-                                <button class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                    <i class="fas fa-user-plus mr-2"></i> Add New User
-                                </button>
-                            </template>
-                        </div>
-                    </div>
+                    
 
                     
 
@@ -298,9 +279,9 @@
                     <!-- Pets Section -->
                     <div class="bg-white dark:bg-gray-700 rounded-lg shadow p-6">
                         <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Manage Pets</h2>
-                            <a href="/addpet" class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
-                            <i class="fas fa-plus mr-2"></i> Add New Pet
+                            <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Manage Bird Food</h2>
+                            <a href="/addBirdFood" class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
+                            <i class="fas fa-plus mr-2"></i> Add item
                             </a>
                         </div>
                         @if(Session::has('success'))
@@ -315,34 +296,45 @@
                                 <thead class="bg-gray-50 dark:bg-gray-600">
                                     <tr>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Id</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Name</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Breed</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Age</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Health status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Product Name</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Weight</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Price (LKR)</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Description</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Flavor</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Product Image</th>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Registration Date</th>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Last Update</th>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider" colspan="2">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(!empty($something) && count($something) > 0)
-
-                                      @foreach($all_pets as $item)
+                                    @if(count($all_birdfood)>0)
+                                      @foreach($all_birdfood as $item)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$item->pet_name}}</td>
-                                            <td>{{$item->pet_type}}</td>
-                                            <td>{{$item->age}}</td>
-                                            <td>{{$item->health_status}}</td>
+                                            <td>{{$item->product_name}}</td>
+                                            <td>{{$item->Weight}}</td>
+                                            <td>{{$item->price}}</td>
+                                            <td>{{$item->description}}</td>
+                                            <td>{{$item->flavor}}</td>
+                                            <td>{{$item->image}}</td>
                                             <td>{{$item->created_at}}</td>
                                             <td>{{$item->updated_at}}</td>
-                                            <td><a href="/edit/{{$item->id}}" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Edit</a></td>
-                                            <td><a href="/delete/{{$item->id}}" class="text-red-600 hover:text-red-800 font-medium text-sm">Delete</a></td>
+                                            <td><a href="{{ route('birdfood.edit', $item->id) }}" class="text-blue-600 hover:text-blue-800">Edit</a></td>
+                                            <td>
+                                            <form action="{{ route('birdfood.delete', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-600 hover:text-red-800 font-medium text-sm">
+                                            Delete
+                                            </button>
+                                            </form>
+                                            </td>
                                         </tr>
                                       @endforeach
                                     @else
                                     <tr>
-                                        <td colspan="9">No Pet Found!</td>
+                                        <td colspan="11">No Item Found!</td>
                                     </tr>
                                     @endif
                                 </tbody>
@@ -357,7 +349,7 @@
         </div>
     </div>
 
-        <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
@@ -404,6 +396,8 @@
             </div>
         </div>
     </footer>
+
+      
 
 
     <script>

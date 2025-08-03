@@ -135,7 +135,7 @@
                         <!-- Appointments CRUD -->
                         <div class="px-4 py-2">
                          <a href="/manageappointments" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
-                         <span><i class="fas fa-paw mr-3"></i> Manage Appoinments</span>
+                         <span><i class="fas fa-paw mr-3"></i> Manage Orders</span>
                         </a>
                         </div>
                         
@@ -325,8 +325,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(!empty($something) && count($something) > 0)
-
+                                    @if(count($all_pets)>0)
                                       @foreach($all_pets as $item)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>

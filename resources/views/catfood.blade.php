@@ -27,12 +27,13 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800&display=swap');
   </style>
-  </head>
+</head>
 <body class="bg-light text-dark font-sans">
-<!-- Whimsical Pet Shop Navigation with Auth Buttons -->
-<header class="bg-light shadow-sm sticky top-0 z-50  bg-opacity-7">
+
+  <!-- Navigation -->
+ <header class="bg-light shadow-lg sticky top-0 z-50  bg-opacity-4">
   <div class="max-w-8xl mx-auto px-6 py-3 flex justify-between items-center">
-    <!-- Logo with animated paw -->
+    <!-- Logo -->
     <div class="flex items-center space-x-3 group">
       <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center shadow-md transform group-hover:rotate-12 transition duration-300">
         <span class="text-white text-2xl animate-bounce">🐾</span>
@@ -46,12 +47,17 @@
     <nav class="hidden lg:block">
       <ul class="flex space-x-10">
         <li>
-          <a href="/homepage" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
+          <a href="#" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
             <span>Home</span>
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
           </a>
         </li>
-        
+        <li>
+          <a href="/products" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
+            <span>Products</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
+          </a>
+        </li>
         <li>
           <a href="/services" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
             <span>Services</span>
@@ -91,8 +97,14 @@
 
       <!-- Auth Buttons - Creative Pet Bowl Inspired -->
       <div class="hidden md:flex items-center space-x-3">
-        <!-- Login - Fish Bone Button -->
-        <a href="/login" class="relative px-4 py-2 text-purple-600 font-medium group transition-all">
+    <a href="/cart" class="flex items-center text-white hover:text-primary">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+    </svg>
+    <span class="font-medium">{{ count(session('cart', [])) }}</span>
+</a>
+        <!-- Login-->
+        <a href="#" class="relative px-4 py-2 text-purple-600 font-medium group transition-all">
           <span class="relative z-10 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
@@ -114,64 +126,88 @@
     </div>
   </div>
 </header>
-<!-- Product Categories -->
-  <section class="py-16 bg-gradient-to-br from-white to-light">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16 text-gray-600" data-aos="fade-up">
-        <h3 class="text-3xl font-display font-bold mb-4">Shop By Pet</h3>
-        <p class="text-gray-500 max-w-2xl mx-auto">Everything you need for every type of pet</p>
+
+  <!-- Hero Section -->
+ <section class="py-4 bg-gradient-to-br from-dark to-light">
+    <div class="max-w-7xl mx-auto px-6 py-5 md:py-16 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-6 md:mb-0" data-aos="fade-right">
+        <h2 class="text-4xl md:text-4xl font-display font-bold leading-tight mb-4 text-accent">
+         Feed Their Joy – Premium Nutrition for Your Feathered Friends
+        </h2>
+        <p class="text-lg text-gray-600 mb-4 max-w-lg">
+          Discover handpicked products and services that keep tails wagging and purrs coming.
+        </p>
       </div>
-      
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <!-- Category 1 -->
-        <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition" data-aos="zoom-in">
-          <div class="h-48 bg-white flex items-center justify-center">
-            <img src="https://img.icons8.com/color/96/000000/dog.png" alt="Dog" class="h-24">
-          </div>
-          <div class="p-6 text-center">
-            <h4 class="text-xl font-semibold text-white mb-2">Dogs</h4>
-            <a href="/dogfood" class="text-sm text-gray-200 hover:text-white font-medium">Shop Now →</a>
-          </div>
-        </div>
-        
-        <!-- Category 2 -->
-        <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="100">
-          <div class="h-48 bg-white flex items-center justify-center">
-            <img src="https://img.icons8.com/color/96/000000/cat.png" alt="Cat" class="h-24">
-          </div>
-          <div class="p-6 text-center">
-            <h4 class="text-xl font-semibold text-white mb-2">Cats</h4>
-            <a href="/catfood" class="text-sm text-gray-200 hover:text-white font-medium">Shop Now →</a>
-          </div>
-        </div>
-        
-        <!-- Category 3 -->
-        <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="200">
-          <div class="h-48 bg-white flex items-center justify-center">
-            <img src="https://img.icons8.com/color/96/000000/rabbit.png" alt="Rabbit" class="h-24">
-          </div>
-          <div class="p-6 text-center">
-            <h4 class="text-xl font-semibold text-white mb-2">Small Pets</h4>
-            <a href="/otherfood" class="text-sm text-gray-200 hover:text-white font-medium">Shop Now →</a>
-          </div>
-        </div>
-        
-        <!-- Category 4 -->
-        <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="300">
-          <div class="h-48 bg-white flex items-center justify-center">
-            <img src="https://img.icons8.com/color/96/000000/parrot.png" alt="Bird" class="h-24">
-          </div>
-          <div class="p-6 text-center">
-            <h4 class="text-xl font-semibold text-white mb-2">Birds</h4>
-            <a href="/birdfood" class="text-sm text-gray-200 hover:text-white font-medium">Shop Now →</a>
-          </div>
+      <div class="md:w-1/2" data-aos="zoom-in">
+        <div class="relative">
+          <div class="absolute -top-6 -left-6 w-64 h-64 bg-accent rounded-2xl opacity-20"></div>
+          <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-primary rounded-2xl opacity-20"></div>
+          <img src="{{ asset('images/catfood2.png') }}"
+               alt="Happy dog with toys" 
+               class="relative rounded-2xl shadow-xl w-full max-w-xs mx-auto" />
         </div>
       </div>
     </div>
-  </section>
-  
-   <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+
+ 
+
+        
+
+        <!-- Related Products -->
+        <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8 text-dark font-display">Premium Dog Food</h1>
+        
+        @if(session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            @foreach($catFoods as $product)
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-accent/10">
+                <!-- Product Image -->
+                <div class="relative pb-[75%] overflow-hidden">
+                    <img src="{{ asset('storage/'.$product->image) }}" 
+                         alt="{{ $product->product_name }}"
+                         class="absolute h-full w-full object-cover">
+                </div>
+                
+                <!-- Product Info -->
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-dark truncate">{{ $product->product_name }}</h3>
+                        <span class="bg-light/10 text-light text-sm px-2 py-1 rounded-full">{{ $product->flavor }}</span>
+                    </div>
+                    
+                    <p class="text-accent text-sm mb-3">{{ $product->weight }}</p>
+                    <p class="text-dark font-bold text-xl mb-4">LKR {{ number_format($product->price, 2) }}</p>
+                    <p class="text-accent text-sm mb-4 line-clamp-2">{{ $product->description }}</p>
+                    
+                    <!-- Add to Cart Button -->
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="product_type" value="cat">
+                        <button type="submit" 
+                                class="w-full bg-primary hover:bg-primary/90 text-white py-2 rounded-lg transition flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            Add to Cart
+                        </button>
+                    </form>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+                
+                 <br>
+                 </section>
+                 <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
@@ -218,8 +254,7 @@
             </div>
         </div>
     </footer>
-
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+                 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
       duration: 800,
@@ -227,6 +262,3 @@
     });
   </script>
 </body>
-</html>
-
-

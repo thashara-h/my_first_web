@@ -132,7 +132,7 @@
                             </a>
                             
                             <!-- Orders -->
-                            <a href="/cart" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg text-petgreen-600 hover:bg-cyan-600 hover:text-gray-900 dark:text-purple-300 dark:hover:bg-cyan-700 dark:hover:text-purple-100">
+                            <a href="/finalcart" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg text-petgreen-600 hover:bg-cyan-600 hover:text-gray-900 dark:text-purple-300 dark:hover:bg-cyan-700 dark:hover:text-purple-100">
                             <i class="fas fa-shopping-cart mr-3 text-yellow-600 dark:text-yellow-400"></i>
                              Cart
                             </a>
