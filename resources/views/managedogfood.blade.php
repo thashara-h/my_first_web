@@ -38,57 +38,9 @@
         
     </style>
 </head>
-<header class="bg-light shadow-lg sticky top-0 z-50  bg-opacity-4">
-  <div class="max-w-8xl mx-auto px-6 py-3 flex justify-between items-center">
-    <!-- Logo -->
-    <div class="flex items-center space-x-3 group">
-      <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center shadow-md transform group-hover:rotate-12 transition duration-300">
-        <span class="text-white text-2xl animate-bounce">🐾</span>
-      </div>
-      <h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 font-serif tracking-tight">
-        PawMart
-      </h1>
-    </div>
 
-    <!-- Navigation with hover effects -->
-    <nav class="hidden lg:block">
-      <ul class="flex space-x-10">
-        <li>
-          <a href="/homepage" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
-            <span>Home</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
-          </a>
-        </li>
-        <li>
-          <a href="/products" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
-            <span>Products</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
-          </a>
-        </li>
-        <li>
-          <a href="/services" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
-            <span>Services</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
-          </a>
-        </li>
-        <li>
-          <a href="/about" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
-            <span>About</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
-          </a>
-        </li>
-        <li>
-          <a href="/contact" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
-            <span>Contact us</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    
-  </div>
-</header>
+ 
+      
 <body class="bg-gray-50 dark:bg-gray-900" x-data="adminDashboard">
     <div class="flex h-screen overflow-hidden">
         <!-- Mobile sidebar overlay -->
@@ -350,58 +302,7 @@
         </div>
     </div>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                            <span class="text-white font-bold text-sm">🐾</span>
-                        </div>
-                        <span class="text-xl font-bold">PawMart</span>
-                    </div>
-                    <p class="text-gray-400">
-                        Your trusted partner in pet care, serving dogs, cats, parrots, and birds with love and expertise.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Pet Food</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Services</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Pet Grooming</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Veterinary Care</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Pet Sitting</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Training</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Contact Info</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>📧 info@pawmart.com</li>
-                        <li>📞 +94 414267844</li>
-                        <li>📍 123 Pet Care Avenue</li>
-                        <li>⏰ Mon-Fri: 8AM-8PM</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 PawMart. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-      
-
-
-    <script>
+      <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('adminDashboard', () => ({
                 darkMode: localStorage.getItem('darkMode') === 'true',

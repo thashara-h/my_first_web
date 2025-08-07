@@ -41,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    
+public function orders()
+  {
+    return $this->hasMany(Order::class);
+}
+
+public function isAdmin()
+{
+    return $this->role === 'admin'; // Or whatever your admin role value is
+}
+
 }

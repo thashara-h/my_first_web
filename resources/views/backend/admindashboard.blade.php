@@ -134,10 +134,19 @@
                         
                         <!-- Appointments CRUD -->
                         <div class="px-4 py-2">
-                         <a href="/manageappointments" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <a href="/appointments" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
                          <span><i class="fas fa-paw mr-3"></i> Manage Appoinments</span>
                         </a>
                         </div>
+
+                        <!-- Appointments CRUD -->
+                        <div class="px-4 py-2">
+                         <a href="/manageorders" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Orders</span>
+                        </a>
+                        </div>
+
+
                         
                         <!-- dogfood CRUD -->
                         <div class="px-4 py-2">

@@ -65,7 +65,7 @@ public function process(Request $request)
     
     // Send notifications
     \Log::info('Order created for user ' . $user->id . ', email sending disabled');
-    $this->notifyAdmin($order);
+   // $this->notifyAdmin($order);
     
     return redirect()->route('order.confirmation', $order->id);
 }

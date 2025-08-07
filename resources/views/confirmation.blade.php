@@ -153,18 +153,16 @@
 
             <!-- Action Buttons -->
             <div class="p-6 border-t border-accent/10 grid grid-cols-1 md:grid-cols-4 gap-4">
-                <a href="{{ route('user.orders') }}" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark text-center">
-                    🔍 View My Orders
+                <a href="{{ route('invoice.view', $order->id) }}" class="px-4 py-2 bg-accent text-white">
+                🧾 View Invoice
                 </a>
-                <a href="{{ route('home') }}" class="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary/10 text-center">
+                <a href="/homepage" class="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary/10 text-center">
                     🏠 Back to Home
                 </a>
-                <a href="{{ route('order.invoice', $order->id) }}" class="px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent-dark text-center">
-                    🧾 Download Invoice
+                <a href="{{ route('invoice.download', $order->id) }}" class="px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent-dark text-center">
+                🧾 Download Invoice
                 </a>
-                <button onclick="window.print()" class="px-4 py-2 border border-accent text-accent rounded-lg hover:bg-accent/10 text-center">
-                    🖨️ Print Receipt
-                </button>
+                
             </div>
         </div>
     </div>

@@ -298,7 +298,9 @@
         <!-- Booking Form -->
         <section class="bg-gradient-to-br from-white to-accent rounded-lg shadow-md p-6">
             <h2 class="text-2xl font-bold text-dark mb-6">Daycare Registration</h2>
-            <form class="grid md:grid-cols-2 gap-6">
+            <form class="grid md:grid-cols-2 gap-6" action="{{ route('appointments.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="service_type" value="veterinary_care">
                 <!-- Owner Information -->
                 <div class="space-y-4">
                     <h3 class="text-lg font-semibold text-primary">Owner Information</h3>
@@ -390,9 +392,9 @@
                 
                 <!-- Submit Button -->
                 <div class="md:col-span-2">
-                               <a href="/orderconfirm" class="w-full bg-primary hover:bg-dark text-white font-bold py-3 px-4 rounded transition duration-200">
-          Register for Veterinary
-        </a>
+                <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-bold py-3 px-4 rounded transition duration-200">
+                  Book Appointment
+                </button>
                 </div>
             </form>
         </section>

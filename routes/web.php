@@ -9,6 +9,9 @@ use App\Http\Controllers\BirdFoodController;
 use App\Http\Controllers\OtherFoodController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -227,11 +230,52 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Admin routes
-Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+/*Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
     Route::get('/orders/{order}', [AdminOrderController::class, 'show'])->name('admin.orders.show');
     Route::patch('/orders/{order}', [AdminOrderController::class, 'update'])->name('admin.orders.update');
+});*/
+
+Route::get('/manage-orders', [OrderController::class, 'adminManageOrders'])->name('admin.manage.orders');
+
+
+Route::get('/confirmation/{id}', [OrderController::class, 'confirmation'])->name('confirmation');
+
+Route::get('/order/{order}/invoice', [OrderController::class, 'invoice'])
+    ->name('order.invoice')
+    ->middleware('auth');
+
+
+
+
+Route::get('/invoice/download/{id}', [OrderController::class, 'download'])->name('invoice.download');   
+Route::get('/invoice/view/{id}', [OrderController::class, 'showInvoice'])->name('invoice.view');
+
+Route::get('/invoice/view/{id}', [OrderController::class, 'showInvoice'])->name('invoice.view');
+
+
+// Admin Order Management Routes
+Route::middleware(['auth'])->group(function () {
+
+    // Order listing
+    Route::get('/manageorders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
+    
+    Route::delete('/orders/{order}', [AdminOrderController::class, 'destroy'])
+        ->name('orders.destroy');  
 });
+
+
+// Public routes
+Route::get('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
+
+// Admin routes
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('/appointments', [AppointmentController::class, 'index'])->name('admin.appointments.index');
+    Route::get('/appointments/{appointment}/edit', [AppointmentController::class, 'edit'])->name('admin.appointments.edit');
+    Route::put('/appointments/{appointment}', [AppointmentController::class, 'update'])->name('admin.appointments.update');
+    Route::delete('/appointments/{appointment}', [AppointmentController::class, 'destroy'])->name('admin.appointments.destroy');
+});
+
 
 require __DIR__.'/auth.php';
 
