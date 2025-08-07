@@ -11,8 +11,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AdminOrderController;
-use App\Http\Controllers\AppointmentController;
-
+use App\Http\Controllers\VeterinarycareController;
+use App\Http\Controllers\DaycareController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -264,17 +264,58 @@ Route::middleware(['auth'])->group(function () {
         ->name('orders.destroy');  
 });
 
-
 // Public routes
-Route::get('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
+Route::post('/veterinary-appointments', [VeterinarycareController::class, 'store'])
+    ->name('veterinary.store');
+
+Route::get('/orderconfirm/{appointment}', [VeterinarycareController::class, 'showConfirmation'])
+     ->name('orderconfirm');
+
+
 
 // Admin routes
-Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('/appointments', [AppointmentController::class, 'index'])->name('admin.appointments.index');
-    Route::get('/appointments/{appointment}/edit', [AppointmentController::class, 'edit'])->name('admin.appointments.edit');
-    Route::put('/appointments/{appointment}', [AppointmentController::class, 'update'])->name('admin.appointments.update');
-    Route::delete('/appointments/{appointment}', [AppointmentController::class, 'destroy'])->name('admin.appointments.destroy');
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/veterinary-appointments', [VeterinarycareController::class, 'index'])
+         ->name('admin.veterinary.index');
+
+    Route::get('/veterinary/add', [VeterinarycareController::class, 'create'])->name('admin.veterinary.create');     
+         
+    //Route::get('/veterinary-appointments/{appointment}', [VeterinarycareController::class, 'show'])
+       //  ->name('admin.veterinary.show');
+         
+    Route::get('/veterinary-appointments/{appointment}/edit', [VeterinarycareController::class, 'edit'])
+         ->name('admin.veterinary.edit');
+         
+    Route::put('/veterinary-appointments/{appointment}', [VeterinarycareController::class, 'update'])
+         ->name('admin.veterinary.update');
+         
+    Route::delete('/veterinary-appointments/{appointment}', [VeterinarycareController::class, 'destroy'])
+         ->name('admin.veterinary.destroy');
+
+    Route::post('/veterinary', [VeterinarycareController::class, 'store'])
+        ->name('admin.veterinary.store');
+
+
+    //daycare
+
+    Route::get('/admin/daycare/confirmation/{daycare}', [DaycarecareController::class, 'showConfirmation'])
+     ->name('confirmation');
+    Route::prefix('admin/daycare')->group(function () {
+    Route::get('/', [DaycareController::class, 'index'])->name('admin.daycare.index');
+    Route::get('/create', [DaycareController::class, 'create'])->name('admin.daycare.create');
+    Route::post('/daycare', [DaycareController::class, 'store'])->name('daycare.store');
+    Route::get('/{daycare}', [DaycareController::class, 'show'])->name('admin.daycare.show');
+    Route::get('/{daycare}/edit', [DaycareController::class, 'edit'])->name('admin.daycare.edit');
+    Route::patch('/{daycare}', [DaycareController::class, 'update'])->name('admin.daycare.update');
+    Route::delete('/{daycare}', [DaycareController::class, 'destroy'])->name('admin.daycare.destroy');
+    Route::get('/calendar', [DaycareController::class, 'calendar'])->name('admin.daycare.calendar');
+    Route::post('/{daycare}/approve', [DaycareController::class, 'approve'])->name('admin.daycare.approve');
+    Route::post('/{daycare}/reject', [DaycareController::class, 'reject'])->name('admin.daycare.reject');
+});    
 });
+
+
+
 
 
 require __DIR__.'/auth.php';

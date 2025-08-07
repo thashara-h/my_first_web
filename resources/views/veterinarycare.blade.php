@@ -298,7 +298,7 @@
         <!-- Booking Form -->
         <section class="bg-gradient-to-br from-white to-accent rounded-lg shadow-md p-6">
             <h2 class="text-2xl font-bold text-dark mb-6">Daycare Registration</h2>
-            <form class="grid md:grid-cols-2 gap-6" action="{{ route('appointments.store') }}" method="POST" enctype="multipart/form-data">
+            <form class="grid md:grid-cols-2 gap-6" action="{{ route('veterinary.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="service_type" value="veterinary_care">
                 <!-- Owner Information -->
@@ -306,15 +306,15 @@
                     <h3 class="text-lg font-semibold text-primary">Owner Information</h3>
                     <div>
                         <label for="owner-name" class="block text-accent mb-1">Full Name</label>
-                        <input type="text" id="owner-name" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                        <input type="text" id="owner-name" name="owner_name" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                     </div>
                     <div>
                         <label for="contact-number" class="block text-accent mb-1">Contact Number</label>
-                        <input type="tel" id="contact-number" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                        <input type="tel" id="contact-number" name="contact_number" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                     </div>
                     <div>
                         <label for="email" class="block text-accent mb-1">Email Address</label>
-                        <input type="email" id="email" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                     </div>
                 </div>
                 
@@ -323,22 +323,22 @@
                     <h3 class="text-lg font-semibold text-primary">Pet Information</h3>
                     <div>
                         <label for="pet-name" class="block text-accent mb-1">Pet's Name</label>
-                        <input type="text" id="pet-name" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                        <input type="text" id="pet-name" name="pet_name" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                     </div>
                     <div>
                         <label for="breed" class="block text-accent mb-1">Breed</label>
-                        <input type="text" id="breed" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                        <input type="text" id="breed" name="breed" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                     </div>
                     <div>
                         <label for="age" class="block text-accent mb-1">Age</label>
-                        <input type="text" id="age" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                        <input type="text" id="age" name="age" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                     </div>
                 </div>
                 
                 <!-- Service Selection -->
                 <div>
                     <h3 class="text-lg font-semibold text-primary mb-2">Service Selection</h3>
-                    <select class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                    <select class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light" name="service_name">
                         <option>Select a service</option>
                         <option>Full-Day Care</option>
                         <option>Half-Day Care</option>
@@ -351,25 +351,15 @@
                 <!-- Date Selection -->
                 <div>
                     <h3 class="text-lg font-semibold text-primary mb-2">Preferred Start Date</h3>
-                    <input type="date" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                    <input type="date" name="appointment_date" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                 </div>
                 
-                <!-- Frequency -->
-                <div>
-                    <h3 class="text-lg font-semibold text-primary mb-2">Frequency</h3>
-                    <select class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                        <option>How often will your pet attend?</option>
-                        <option>Just once</option>
-                        <option>1-2 days per week</option>
-                        <option>3-4 days per week</option>
-                        <option>Full time (5+ days)</option>
-                    </select>
-                </div>
+                
                 
                 <!-- Transportation -->
                 <div>
                     <h3 class="text-lg font-semibold text-primary mb-2">Need Transportation?</h3>
-                    <select class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                    <select name="transportation" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light" >
                         <option>Select transportation option</option>
                         <option>No transportation needed</option>
                         <option>Morning pickup only</option>
@@ -381,19 +371,15 @@
                 <!-- Special Notes -->
                 <div class="md:col-span-2">
                     <label for="special-notes" class="block text-accent mb-1">Special Notes About Your Pet</label>
-                    <textarea id="special-notes" rows="3" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light" placeholder="Behavioral notes, medical conditions, special needs, etc."></textarea>
+                    <textarea id="special-notes" name="special_requests"rows="3" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light" placeholder="Behavioral notes, medical conditions, special needs, etc."></textarea>
                 </div>
                 
-                <!-- Vaccination Upload -->
-                <div class="md:col-span-2">
-                    <label for="vaccination" class="block text-accent mb-1">Upload Vaccination Records</label>
-                    <input type="file" id="vaccination" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                </div>
+                
                 
                 <!-- Submit Button -->
                 <div class="md:col-span-2">
                 <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-bold py-3 px-4 rounded transition duration-200">
-                  Book Appointment
+                Book Veterinary Appointment
                 </button>
                 </div>
             </form>

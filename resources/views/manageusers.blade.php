@@ -52,10 +52,10 @@
 
     <!-- Main Content -->
     <div class="flex min-h-screen">
-        <!-- Sidebar -->
+         <!-- Sidebar -->
         <div class="hidden md:flex md:flex-shrink-0 bg-gradient-to-br from-petpurple to-gray dark:from-dark dark:to-gray-800 border-r border-gray-200 dark:border-gray-700">
-            <div class="flex flex-col w-64">
-                <!-- Sidebar content from your original dashboard -->
+            <div class="flex flex-col w-full">
+                <!-- Logo -->
                 <div class="flex items-center justify-center h-16 px-4 border-b border-gray-700">
                     <div class="flex items-center group">
                         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center shadow-md transform group-hover:rotate-12 transition duration-300 mr-2">
@@ -65,37 +65,88 @@
                     </div>
                 </div>
                 
+                <!-- CRUD Navigation -->
                 <div class="flex-1 overflow-y-auto py-4">
                     <nav>
+                        <!-- Dashboard -->
                         <div class="px-4 py-2">
-                            <a href="/dashboard" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
-                                <i class="fas fa-tachometer-alt mr-3"></i>Dashboard 
+                            <a href="#" @click="activeCrudSection = ''" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg bg-petpurple text-white dark:bg-gray-700 dark:text-purple-300">
+                                <i class="fas fa-tachometer-alt mr-3 text-white dark:text-purple-400"></i>
+                                Dashboard 
                             </a>
                         </div>
                         
+                        <!-- Pets CRUD -->
                         <div class="px-4 py-2">
-                            <a href="/pets" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
-                                <i class="fas fa-paw mr-3"></i>Manage Pets
-                            </a>
+                         <a href="/managepets" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Pets</span>
+                        </a>
                         </div>
                         
+                        <!-- Users CRUD -->
                         <div class="px-4 py-2">
-                            <a href="/users" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg bg-petpurple text-white dark:bg-gray-700">
-                                <i class="fas fa-users mr-3"></i>Manage Users
-                            </a>
+                         <a href="/manageusers" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Users</span>
+                        </a>
                         </div>
                         
+                        <!-- Appointments CRUD -->
                         <div class="px-4 py-2">
-                            <a href="/appointments" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
-                                <i class="fas fa-calendar-alt mr-3"></i>Manage Appointments
-                            </a>
+                         <a href="{{ route('admin.veterinary.index') }}" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Veterinarycare</span>
+                        </a>
                         </div>
+
+                        <div class="px-4 py-2">
+                         <a href="{{ route('admin.veterinary.index') }}" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Daycare</span>
+                        </a>
+                        </div>
+
+                        <div class="px-4 py-2">
+                         <a href="{{ route('admin.veterinary.index') }}" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Spa and Grooming</span>
+                        </a>
+                        </div>
+
+                        <!-- Appointments CRUD -->
+                        <div class="px-4 py-2">
+                         <a href="/manageorders" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Orders</span>
+                        </a>
+                        </div>
+
+
                         
+                        <!-- dogfood CRUD -->
                         <div class="px-4 py-2">
-                            <a href="/products" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
-                                <i class="fas fa-shopping-bag mr-3"></i>Manage Products
-                            </a>
+                         <a href="/managedogfood" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Dog Food</span>
+                        </a>
                         </div>
+
+                        <!-- catfood CRUD -->
+                        <div class="px-4 py-2">
+                         <a href="/managecatfood" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Cat Food</span>
+                        </a>
+                        </div>
+
+                        <!-- birdgood CRUD -->
+                        <div class="px-4 py-2">
+                         <a href="/managebirdfood" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Bird Food</span>
+                        </a>
+                        </div>
+
+                        <!-- otherfood CRUD -->
+                        <div class="px-4 py-2">
+                        <a href="/manageotherpetfood" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                        <span><i class="fas fa-paw mr-3"></i> Manage Other Food</span>
+                        </a>
+                        </div>
+
+                        
                     </nav>
                 </div>
                 
@@ -107,7 +158,9 @@
                             <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Admin" class="w-10 h-10 rounded-full">
                             <div class="ml-3">
                                 <p class="text-sm font-medium text-white dark:text-gray-200">Admin User</p>
-                                <a href="{{ route('profile.edit') }}" class="text-xs font-medium text-purple-300 hover:text-white">View profile</a>
+                                <a href="{{ route('profile.edit') }}" class="text-xs font-medium text-purple-300 hover:text-white">
+                                    View profile
+                                </a>
                             </div>
                         </div>
                         
@@ -120,13 +173,20 @@
                         
                         <!-- Logout -->
                         <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="flex items-center px-2 py-2 text-sm font-medium rounded-lg text-white hover:bg-petpurple dark:hover:bg-gray-700">
-                            <i class="fas fa-sign-out-alt mr-3"></i>Log out
+                            <i class="fas fa-sign-out-alt mr-3"></i>
+                            Log out
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">@csrf</form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+                        
+                        
+                
+       
 
         <!-- Main Content Area -->
         <div class="flex-1 overflow-auto">

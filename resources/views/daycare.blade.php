@@ -299,7 +299,7 @@
         <!-- Booking Form -->
         <section class="bg-gradient-to-br from-white to-accent rounded-lg shadow-md p-6">
             <h2 class="text-2xl font-bold text-dark mb-6">Daycare Registration Form</h2>
-            <form class="grid md:grid-cols-2 gap-6" action="{{ route('appointments.store') }}" method="POST" enctype="multipart/form-data">
+            <form class="grid md:grid-cols-2 gap-6" action="{{ route('daycare.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <input type="hidden" name="service_type" value="day_care">

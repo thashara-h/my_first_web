@@ -40,15 +40,7 @@
 </head>
 <header class="bg-light shadow-lg sticky top-0 z-50  bg-opacity-4">
   <div class="max-w-8xl mx-auto px-6 py-3 flex justify-between items-center">
-    <!-- Logo -->
-    <div class="flex items-center space-x-3 group">
-      <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center shadow-md transform group-hover:rotate-12 transition duration-300">
-        <span class="text-white text-2xl animate-bounce">🐾</span>
-      </div>
-      <h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 font-serif tracking-tight">
-        PawMart
-      </h1>
-    </div>
+    
 
     <!-- Navigation with hover effects -->
     <nav class="hidden lg:block">
@@ -59,30 +51,8 @@
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
           </a>
         </li>
-        <li>
-          <a href="/products" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
-            <span>Products</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
-          </a>
-        </li>
-        <li>
-          <a href="/services" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
-            <span>Services</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
-          </a>
-        </li>
-        <li>
-          <a href="/about" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
-            <span>About</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
-          </a>
-        </li>
-        <li>
-          <a href="/contact" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
-            <span>Contact us</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
-          </a>
-        </li>
+        
+        
       </ul>
     </nav>
 
@@ -134,8 +104,20 @@
                         
                         <!-- Appointments CRUD -->
                         <div class="px-4 py-2">
-                         <a href="/appointments" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
-                         <span><i class="fas fa-paw mr-3"></i> Manage Appoinments</span>
+                         <a href="{{ route('admin.veterinary.index') }}" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Veterinarycare</span>
+                        </a>
+                        </div>
+
+                        <div class="px-4 py-2">
+                         <a href="{{ route('admin.daycare.index') }}" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Daycare</span>
+                        </a>
+                        </div>
+
+                        <div class="px-4 py-2">
+                         <a href="{{ route('admin.veterinary.index') }}" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Spa and Grooming</span>
                         </a>
                         </div>
 

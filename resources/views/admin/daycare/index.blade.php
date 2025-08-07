@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | PetCare</title>
+    <title>Manage Veterinary Appointments | PetCare Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -25,27 +25,14 @@
             }
         }
     </script>
-    <style>
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .scroll-animate.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-    </style>
 </head>
-
  
-      
 <body class="bg-gray-50 dark:bg-gray-900" x-data="adminDashboard">
     <div class="flex h-screen overflow-hidden">
         <!-- Mobile sidebar overlay -->
         <div x-show="mobileSidebarOpen" x-transition.opacity class="md:hidden fixed inset-0 bg-gray-900 bg-opacity-50 z-40"></div>
 
+        
          <!-- Sidebar -->
         <div class="hidden md:flex md:flex-shrink-0 bg-gradient-to-br from-petpurple to-gray dark:from-dark dark:to-gray-800 border-r border-gray-200 dark:border-gray-700">
             <div class="flex flex-col w-full">
@@ -177,11 +164,9 @@
                 </div>
             </div>
         </div>
-                        
-                        
-                      
-
-                   
+                  
+                
+              
         
 
         <!-- Main Content -->
@@ -195,149 +180,97 @@
                     <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center shadow-md mr-2">
                         <span class="text-white text-sm">🐾</span>
                     </div>
-                    <span class="text-lg font-bold text-white">PetCare Admin</span>
+                    <span class="text-lg font-bold text-white">Veterinary Appointments</span>
                 </div>
                 <div class="w-6"></div>
             </div>
             
-            <!-- Mobile sidebar -->
-            <div x-show="mobileSidebarOpen" @click.away="mobileSidebarOpen = false" class="md:hidden fixed inset-y-0 left-0 z-50 w-64 bg-gradient-to-br from-petpurple to-petgreen shadow-lg transform transition-transform duration-300 ease-in-out" :class="{'translate-x-0': mobileSidebarOpen, '-translate-x-full': !mobileSidebarOpen}">
-                <div class="flex items-center justify-between h-16 px-4 border-b border-gray-700">
-                    <div class="flex items-center">
-                        <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center shadow-md mr-2">
-                            <span class="text-white text-sm">🐾</span>
-                        </div>
-                        <span class="text-lg font-bold text-white">PetCare Admin</span>
-                    </div>
-                    <button @click="mobileSidebarOpen = false" class="text-white focus:outline-none">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-                <div class="h-full overflow-y-auto py-4">
-                    <!-- Same navigation as desktop sidebar -->
-                    <nav class="px-4 space-y-1">
-                        <a href="#" @click="activeCrudSection = ''; mobileSidebarOpen = false" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg bg-petpurple text-white">
-                            <i class="fas fa-tachometer-alt mr-3"></i>
-                            Dashboard
-                        </a>
-                        
-                        <!-- Pets -->
-                        <div>
-                            <button @click="activeCrudSection = activeCrudSection === 'pets' ? '' : 'pets'" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white">
-                                <span><i class="fas fa-paw mr-3"></i> Manage Pets</span>
-                                <i class="fas fa-chevron-down text-xs transition-transform duration-200" :class="{'rotate-180': activeCrudSection === 'pets'}"></i>
-                            </button>
-                            <div x-show="activeCrudSection === 'pets'" class="mt-2 pl-8 space-y-1">
-                                <a href="#" @click="mobileSidebarOpen = false" class="block px-3 py-2 text-sm rounded-lg hover:bg-petpurple hover:text-white">
-                                    <i class="fas fa-list mr-2"></i> View All Pets
-                                </a>
-                                <a href="#" @click="showAddPetModal = true; mobileSidebarOpen = false" class="block px-3 py-2 text-sm rounded-lg hover:bg-petpurple hover:text-white">
-                                    <i class="fas fa-plus-circle mr-2"></i> Add New Pet
-                                </a>
-                                <a href="#" @click="mobileSidebarOpen = false" class="block px-3 py-2 text-sm rounded-lg hover:bg-petpurple hover:text-white">
-                                    <i class="fas fa-edit mr-2"></i> Edit Pets
-                                </a>
-                                <a href="#" @click="mobileSidebarOpen = false" class="block px-3 py-2 text-sm rounded-lg hover:bg-petpurple hover:text-white">
-                                    <i class="fas fa-trash-alt mr-2"></i> Delete Pets
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Other mobile menu items... -->
-                    </nav>
-                </div>
+            <!-- Content Area -->
+<main class="p-6 bg-gradient-to-br from-petpurple to-petgreen dark:from-petpurple dark:to-gray-900">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Daycare Registrations</h1>
+            <div class="flex space-x-3">
+                <button class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 flex items-center">
+                    <i class="fas fa-download mr-2"></i> Export
+                </button>
+                <a href="{{ route('admin.daycare.create') }}" class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
+                    <i class="fas fa-plus mr-2"></i> New Registration
+                </a>
             </div>
-    <!-- Content Area -->
-            <main class="p-6 bg-gradient-to-br from-petpurple to-petgreen dark:from-petpurple dark:to-gray-900">
-                <div class="max-w-7xl mx-auto">
-                    
+        </div>
 
-                    
-
-                    <!-- CRUD Content Sections -->
-                    <!-- Pets Section -->
-                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow p-6">
-                        <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Manage Dog Food</h2>
-                            <a href="/addDogFood" class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
-                            <i class="fas fa-plus mr-2"></i> Add item
-                            </a>
-                        </div>
-                        @if(Session::has('success'))
-                        <span class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded">{{Session::get('success')}}</span>
-                        @endif
-                         @if(Session::has('fail'))
-                        <span class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded">{{Session::get('fail')}}</span>
-                        @endif
-                        
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
-                                <thead class="bg-gray-50 dark:bg-gray-600">
-                                    <tr>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Id</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Product Name</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Weight</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Price (LKR)</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Description</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Flavor</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Product Image</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Registration Date</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Last Update</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider" colspan="2">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if(count($all_dogfood)>0)
-                                      @foreach($all_dogfood as $item)
-                                        <tr>
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>{{$item->product_name}}</td>
-                                            <td>{{$item->Weight}}</td>
-                                            <td>{{$item->price}}</td>
-                                            <td>{{$item->description}}</td>
-                                            <td>{{$item->flavor}}</td>
-                                            <td>{{$item->image}}</td>
-                                            <td>{{$item->created_at}}</td>
-                                            <td>{{$item->updated_at}}</td>
-                                            <td><a href="{{ route('dogfood.edit', $item->id) }}" class="text-blue-600 hover:text-blue-800">Edit</a></td>
-                                            <td>
-                                            <form action="{{ route('dogfood.delete', $item->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="text-red-600 hover:text-red-800 font-medium text-sm">
-                                            Delete
-                                            </button>
-                                            </form>
-
-                                            
-                                        </tr>
-                                      @endforeach
-                                    @else
-                                    <tr>
-                                        <td colspan="11">No Item Found!</td>
-                                    </tr>
-                                    @endif
-                                </tbody>
-                                
-                            </table>
-                        </div>
-                    </div>
-
+        <!-- Daycare Table -->
+        <div class="bg-white dark:bg-gray-700 rounded-lg shadow p-6">
+            @if(Session::has('success'))
+            <div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded">
+                {{ Session::get('success') }}
             </div>
-
-            </main>
+            @endif
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                    <thead class="bg-gray-50 dark:bg-gray-600">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">ID</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Pet</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Owner</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Schedule</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Days</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Status</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white dark:bg-gray-700 divide-y divide-gray-200 dark:divide-gray-600">
+                        @forelse($daycares as $daycare)
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">#{{ $daycare->id }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="font-medium text-gray-900 dark:text-white">{{ $daycare->pet_name }}</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-300">{{ $daycare->pet_breed }}, {{ $daycare->pet_age }}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900 dark:text-white">{{ $daycare->owner_name }}</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-300">{{ $daycare->contact_number }}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+                                {{ \Carbon\Carbon::parse($daycare->dropoff_time)->format('h:i A') }} - 
+                                {{ \Carbon\Carbon::parse($daycare->pickup_time)->format('h:i A') }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+                                {{ implode(', ', json_decode($daycare->days_needed)) }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                @include('admin.daycare.partials._status_badge', ['status' => $daycare->status])
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                @include('admin.daycare.partials._actions', ['daycare' => $daycare])
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="7" class="px-6 py-4 text-center text-gray-500 dark:text-gray-300">No daycare registrations found</td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+            <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                {{ $daycares->links() }}
+            </div>
+        </div>
+    </div>
+</main>
+            
         </div>
     </div>
 
-      <script>
+    <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('adminDashboard', () => ({
                 darkMode: localStorage.getItem('darkMode') === 'true',
                 mobileSidebarOpen: false,
-                activeCrudSection: '',
-                showAddPetModal: false,
-
-                
                 
                 init() {
                     // Check for saved dark mode preference
@@ -348,9 +281,6 @@
                     
                     // Apply dark mode on init
                     this.toggleDarkMode(this.darkMode);
-                    
-                    // Set up scroll animations
-                    this.setupScrollAnimations();
                 },
                 
                 toggleDarkMode(value = null) {
@@ -362,33 +292,6 @@
                     } else {
                         document.documentElement.classList.remove('dark');
                     }
-                },
-                
-                getActiveSectionTitle() {
-                    if (!this.activeCrudSection) return 'Dashboard Overview';
-                    
-                    const titles = {
-                        'pets': 'Manage Pets',
-                        'users': 'Manage Users',
-                        'appointments': 'Manage Appointments',
-                        'products': 'Manage Products'
-                    };
-                    
-                    return titles[this.activeCrudSection] || '';
-                },
-                
-                setupScrollAnimations() {
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add('animate');
-                            }
-                        });
-                    }, { threshold: 0.1 });
-                    
-                    document.querySelectorAll('.scroll-animate').forEach(el => {
-                        observer.observe(el);
-                    });
                 }
             }));
         });

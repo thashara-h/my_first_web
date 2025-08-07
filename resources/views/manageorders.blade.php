@@ -42,7 +42,7 @@
         <!-- Mobile sidebar overlay -->
         <div x-show="mobileSidebarOpen" x-transition.opacity class="md:hidden fixed inset-0 bg-gray-900 bg-opacity-50 z-40"></div>
 
-        <!-- Sidebar -->
+         <!-- Sidebar -->
         <div class="hidden md:flex md:flex-shrink-0 bg-gradient-to-br from-petpurple to-gray dark:from-dark dark:to-gray-800 border-r border-gray-200 dark:border-gray-700">
             <div class="flex flex-col w-full">
                 <!-- Logo -->
@@ -82,10 +82,31 @@
                         
                         <!-- Appointments CRUD -->
                         <div class="px-4 py-2">
+                         <a href="{{ route('admin.veterinary.index') }}" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Veterinarycare</span>
+                        </a>
+                        </div>
+
+                        <div class="px-4 py-2">
+                         <a href="{{ route('admin.veterinary.index') }}" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Daycare</span>
+                        </a>
+                        </div>
+
+                        <div class="px-4 py-2">
+                         <a href="{{ route('admin.veterinary.index') }}" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
+                         <span><i class="fas fa-paw mr-3"></i> Manage Spa and Grooming</span>
+                        </a>
+                        </div>
+
+                        <!-- Appointments CRUD -->
+                        <div class="px-4 py-2">
                          <a href="/manageorders" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white dark:hover:bg-gray-700 dark:text-gray-300">
                          <span><i class="fas fa-paw mr-3"></i> Manage Orders</span>
                         </a>
                         </div>
+
+
                         
                         <!-- dogfood CRUD -->
                         <div class="px-4 py-2">
@@ -152,6 +173,11 @@
                 </div>
             </div>
         </div>
+                        
+                        
+
+                 
+       
 
         <!-- Main Content -->
         <div class="flex-1 overflow-auto">
