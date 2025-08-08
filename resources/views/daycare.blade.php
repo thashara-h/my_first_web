@@ -298,148 +298,94 @@
 
         <!-- Booking Form -->
         <section class="bg-gradient-to-br from-white to-accent rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-bold text-dark mb-6">Daycare Registration Form</h2>
-            <form class="grid md:grid-cols-2 gap-6" action="{{ route('daycare.store') }}" method="POST" enctype="multipart/form-data">
+            <h2 class="text-2xl font-bold text-dark mb-6">Daycare Registration</h2>
+            <form class="grid md:grid-cols-2 gap-6" action="{{ route('veterinary.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-
-            <input type="hidden" name="service_type" value="day_care">
+            <input type="hidden" name="service_type" value="veterinary_care">
                 <!-- Owner Information -->
                 <div class="space-y-4">
                     <h3 class="text-lg font-semibold text-primary">Owner Information</h3>
                     <div>
-                        <label for="owner-name" class="block text-accent mb-1">Full Name*</label>
-                        <input type="text" id="owner-name" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                        <label for="owner-name" class="block text-accent mb-1">Full Name</label>
+                        <input type="text" id="owner-name" name="owner_name" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                     </div>
                     <div>
-                        <label for="contact-number" class="block text-accent mb-1">Phone Number*</label>
-                        <input type="tel" id="contact-number" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                        <label for="contact-number" class="block text-accent mb-1">Contact Number</label>
+                        <input type="tel" id="contact-number" name="contact_number" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                     </div>
                     <div>
-                        <label for="email" class="block text-accent mb-1">Email Address*</label>
-                        <input type="email" id="email" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                        <label for="email" class="block text-accent mb-1">Email Address</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                     </div>
                 </div>
                 
-                <!-- Pet Details -->
+                <!-- Pet Information -->
                 <div class="space-y-4">
-                    <h3 class="text-lg font-semibold text-primary">Pet Details</h3>
+                    <h3 class="text-lg font-semibold text-primary">Pet Information</h3>
                     <div>
-                        <label for="pet-name" class="block text-accent mb-1">Pet's Name*</label>
-                        <input type="text" id="pet-name" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label for="age" class="block text-accent mb-1">Age*</label>
-                            <input type="text" id="age" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                        </div>
-                        <div>
-                            <label for="breed" class="block text-accent mb-1">Breed*</label>
-                            <input type="text" id="breed" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                        </div>
+                        <label for="pet-name" class="block text-accent mb-1">Pet's Name</label>
+                        <input type="text" id="pet-name" name="pet_name" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                     </div>
                     <div>
-                        <label for="temperament" class="block text-accent mb-1">Temperament*</label>
-                        <select id="temperament" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                            <option value="">Select temperament</option>
-                            <option>Shy/Timid</option>
-                            <option>Friendly/Social</option>
-                            <option>Energetic/Playful</option>
-                            <option>Independent</option>
-                            <option>Other</option>
-                        </select>
+                        <label for="breed" class="block text-accent mb-1">Breed</label>
+                        <input type="text" id="breed" name="breed" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
+                    </div>
+                    <div>
+                        <label for="age" class="block text-accent mb-1">Age</label>
+                        <input type="text" id="age" name="age" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                     </div>
                 </div>
                 
-                <!-- Schedule -->
+                <!-- Service Selection -->
                 <div>
-                    <h3 class="text-lg font-semibold text-primary mb-2">Preferred Schedule</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label for="dropoff" class="block text-accent mb-1">Drop-off Time*</label>
-                            <input type="time" id="dropoff" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                        </div>
-                        <div>
-                            <label for="pickup" class="block text-accent mb-1">Pick-up Time*</label>
-                            <input type="time" id="pickup" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                        </div>
-                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Service Selection</h3>
+                    <select class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light" name="service_name">
+                        <option>Select a service</option>
+                        <option>Full-Day Care</option>
+                        <option>Half-Day Care</option>
+                        <option>Puppy Program</option>
+                        <option>Overnight Care</option>
+                        <option>10-Day Package</option>
+                    </select>
                 </div>
                 
-                <!-- Days of Week -->
+                <!-- Date Selection -->
                 <div>
-                    <h3 class="text-lg font-semibold text-primary mb-2">Days Needed*</h3>
-                    <div class="grid grid-cols-3 gap-2">
-                        <label class="flex items-center">
-                            <input type="checkbox" class="rounded text-light focus:ring-light">
-                            <span class="ml-2 text-accent">Monday</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" class="rounded text-light focus:ring-light">
-                            <span class="ml-2 text-accent">Tuesday</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" class="rounded text-light focus:ring-light">
-                            <span class="ml-2 text-accent">Wednesday</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" class="rounded text-light focus:ring-light">
-                            <span class="ml-2 text-accent">Thursday</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" class="rounded text-light focus:ring-light">
-                            <span class="ml-2 text-accent">Friday</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" class="rounded text-light focus:ring-light">
-                            <span class="ml-2 text-accent">Saturday</span>
-                        </label>
-                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Preferred Start Date</h3>
+                    <input type="date" name="appointment_date" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
                 </div>
                 
-                <!-- Feeding Instructions -->
-                <div class="md:col-span-2">
-                    <h3 class="text-lg font-semibold text-primary mb-2">Feeding Instructions</h3>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="food-type" class="block text-accent mb-1">Food Type/Brand</label>
-                            <input type="text" id="food-type" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                        </div>
-                        <div>
-                            <label for="feeding-schedule" class="block text-accent mb-1">Feeding Schedule</label>
-                            <input type="text" id="feeding-schedule" placeholder="e.g., 1 cup at noon" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                        </div>
-                    </div>
+                
+                
+                <!-- Transportation -->
+                <div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Need Transportation?</h3>
+                    <select name="transportation" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light" >
+                        <option>Select transportation option</option>
+                        <option>No transportation needed</option>
+                        <option>Morning pickup only</option>
+                        <option>Afternoon dropoff only</option>
+                        <option>Both pickup and dropoff</option>
+                    </select>
                 </div>
                 
-                <!-- Emergency Contact -->
+                <!-- Special Notes -->
                 <div class="md:col-span-2">
-                    <h3 class="text-lg font-semibold text-primary mb-2">Emergency Contact</h3>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="emergency-name" class="block text-accent mb-1">Contact Name*</label>
-                            <input type="text" id="emergency-name" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                        </div>
-                        <div>
-                            <label for="emergency-phone" class="block text-accent mb-1">Phone Number*</label>
-                            <input type="tel" id="emergency-phone" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                        </div>
-                    </div>
+                    <label for="special-notes" class="block text-accent mb-1">Special Notes About Your Pet</label>
+                    <textarea id="special-notes" name="special_requests"rows="3" class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light" placeholder="Behavioral notes, medical conditions, special needs, etc."></textarea>
                 </div>
                 
-                <!-- Vaccination Upload -->
-                <div class="md:col-span-2">
-                    <label for="vaccination" class="block text-accent mb-1">Upload Vaccination Records*</label>
-                    <input type="file" id="vaccination" required class="w-full px-4 py-2 border border-accent rounded focus:outline-none focus:ring-2 focus:ring-light">
-                </div>
+                
                 
                 <!-- Submit Button -->
-               <div class="md:col-span-2">
-               <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-bold py-3 px-4 rounded transition duration-200">
-                   Submit Registration
+                <div class="md:col-span-2">
+                <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-bold py-3 px-4 rounded transition duration-200">
+                REGISTER FOR DAYCARE
                 </button>
-               </div>
+                </div>
             </form>
         </section>
+                
     </main>
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">

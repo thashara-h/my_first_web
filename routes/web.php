@@ -280,8 +280,8 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/veterinary/add', [VeterinarycareController::class, 'create'])->name('admin.veterinary.create');     
          
-    //Route::get('/veterinary-appointments/{appointment}', [VeterinarycareController::class, 'show'])
-       //  ->name('admin.veterinary.show');
+    Route::get('/veterinary-appointments/{appointment}', [VeterinarycareController::class, 'show'])
+        ->name('admin.veterinary.show');
          
     Route::get('/veterinary-appointments/{appointment}/edit', [VeterinarycareController::class, 'edit'])
          ->name('admin.veterinary.edit');

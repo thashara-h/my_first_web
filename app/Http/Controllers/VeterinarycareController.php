@@ -33,9 +33,14 @@ public function store(Request $request)
     try {
         $appointment = Veterinarycare::create($validated);
         
-        return redirect()
-            ->route('admin.veterinary.index')
-            ->with('success', 'Appointment created successfully!');
+        if (auth()->check() && auth()->user()->role === 'admin') {
+        // Admin created appointment → go back to admin list
+        return redirect()->route('admin.veterinary.index')->with('success', 'Appointment created successfully!');
+    }
+
+        // Pet owner → show confirmation page
+        return redirect()->route('orderconfirm', $appointment->id);
+
             
     } catch (\Exception $e) {
         return back()
@@ -96,4 +101,6 @@ public function store(Request $request)
 {
     return view('admin.veterinary.show', compact('appointment'));
 }
+
+
 }
