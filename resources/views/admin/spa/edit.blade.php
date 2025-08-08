@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit daycare Appointment</title>
+    <title>Edit Veterinary Appointment</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
@@ -11,15 +11,15 @@
         <div class="max-w-4xl mx-auto">
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold text-gray-800">Edit Daycare Registration</h1>
-                <a href="{{ route('admin.veterinary.index') }}" class="text-blue-600 hover:text-blue-800">
-                    ← Back to Registrations
+                <h1 class="text-2xl font-bold text-gray-800">Edit Veterinary Appointment</h1>
+                <a href="{{ route('admin.spa.index') }}" class="text-blue-600 hover:text-blue-800">
+                    ← Back to Appointments
                 </a>
             </div>
 
             <!-- Edit Form -->
             <div class="bg-white rounded-lg shadow-md p-6">
-                <form action="{{ route('admin.daycare.update', $appointment->id) }}" method="POST">
+                <form action="{{ route('admin.spa.update', $appointment->id) }}" method="POST">
                     @csrf
                     @method('PUT')
 
@@ -57,7 +57,7 @@
 
                     <!-- Appointment Details -->
                     <div class="mb-6">
-                        <h2 class="text-lg font-semibold text-gray-700 mb-4 pb-2 border-b">Service Details</h2>
+                        <h2 class="text-lg font-semibold text-gray-700 mb-4 pb-2 border-b">Appointment Details</h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label for="service_name" class="block text-sm font-medium text-gray-700 mb-1">Service</label>
@@ -97,7 +97,7 @@
 
                     <!-- Form Actions -->
                     <div class="flex justify-end space-x-3">
-                        <a href="{{ route('admin.daycare.index') }}" class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        <a href="{{ route('admin.spa.index') }}" class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             Cancel
                         </a>
                         <button type="submit" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">

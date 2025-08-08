@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Daycare extends Model
+class Spa extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'owner_name',
         'contact_number',
@@ -28,4 +27,3 @@ class Daycare extends Model
         'appointment_date' => 'date',
     ];
 }
-

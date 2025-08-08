@@ -7,112 +7,98 @@ use Illuminate\Http\Request;
 use App\Models\Daycare;
 class DaycareController extends Controller
 {
-   public function create()
-    {
-        return view('admin.daycare.create');
+  public function create()
+{
+    return view('admin.daycare.add'); 
+} 
+
+public function store(Request $request)
+{
+    $validated = $request->validate([
+        'owner_name' => 'required|string|max:255',
+        'contact_number' => 'required|string|max:20',
+        'email' => 'required|email|max:255',
+        'pet_name' => 'required|string|max:255',
+        'breed' => 'required|string|max:255',
+        'age' => 'required|string|max:50',
+        'service_name' => 'required|string',
+        'appointment_date' => 'required|date',
+        'special_requests' => 'nullable|string',
+        'status' => 'sometimes|in:pending,confirmed,completed,cancelled' // Default to 'pending' if not provided
+    ]);
+
+    // Set default status if not provided
+    $validated['status'] = $validated['status'] ?? 'pending';
+
+    try {
+        $appointment = Daycare::create($validated);
+        
+        if (auth()->check() && auth()->user()->role === 'admin') {
+        // Admin created appointment → go back to admin list
+        return redirect()->route('admin.daycare.index')->with('success', 'Appointment created successfully!');
     }
 
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            // Owner Information
-            'owner_name' => 'required|string|max:255',
-            'contact_number' => 'required|string|max:20',
-            'email' => 'required|email|max:255',
-            
-            // Pet Details
-            'pet_name' => 'required|string|max:255',
-            'pet_age' => 'required|string|max:50',
-            'pet_breed' => 'required|string|max:255',
-            'temperament' => 'required|string|max:255',
-            
-            // Schedule
-            'dropoff_time' => 'required|date_format:H:i',
-            'pickup_time' => 'required|date_format:H:i|after:dropoff_time',
-            'days_needed' => 'required|array',
-            'days_needed.*' => 'string|in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday',
-            
-            // Feeding Instructions
-            'food_type' => 'nullable|string|max:255',
-            'feeding_schedule' => 'nullable|string|max:255',
-            
-            // Emergency Contact
-            'emergency_contact_name' => 'required|string|max:255',
-            'emergency_contact_phone' => 'required|string|max:20',
-            
-            // Vaccination
-            //'vaccination_records' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
-            
-            // System
-            //'service_type' => 'required|string|in:day_care'
-        ]);
+        // Pet owner → show confirmation page
+        return redirect()->route('daycare.orderconfirm', $appointment->id);
 
-        try {
-            // Handle file upload
-           /* if ($request->hasFile('vaccination_records')) {
-                $path = $request->file('vaccination_records')->store('vaccination_records', 'public');
-                $validated['vaccination_path'] = $path;
-            }*/
-
-            // Convert days array to string
-            $validated['days_needed'] = implode(',', $validated['days_needed']);
-
-            // Create daycare registration
-            $daycare = Daycare::create($validated);
-
-            return redirect()->route('admin.daycare.index')
-                            ->with('success', 'Daycare registration created successfully!');
-
-        } catch (\Exception $e) {
-            return back()->withInput()
-                        ->with('error', 'Error creating registration: ' . $e->getMessage());
-        }
+            
+    } catch (\Exception $e) {
+        return back()
+            ->withInput()
+            ->with('error', 'Error creating appointment: ' . $e->getMessage());
     }
+}
+
+
+        
+
+       
 
     public function index()
     {
-        $daycares = Daycare::latest()->paginate(10);
-        return view('admin.daycare.index', compact('daycares'));
+        $appointments = Daycare::orderBy('appointment_date', 'desc')
+                        
+                        ->paginate(10);
+
+        return view('admin.daycare.index', compact('appointments'));
     }
 
-    public function show(Daycare $daycare)
+    public function edit(Daycare $appointment)
     {
-        return view('admin.daycare.show', compact('daycare'));
+        return view('admin.daycare.edit', compact('appointment'));
     }
 
-    public function edit(Daycare $daycare)
-    {
-        return view('admin.daycare.edit', compact('daycare'));
-    }
-
-    public function update(Request $request, Daycare $daycare)
+     public function update(Request $request, Daycare $appointment)
     {
         $validated = $request->validate([
-            'status' => 'required|in:pending,approved,rejected,completed',
-            'notes' => 'nullable|string|max:500'
+            'status' => 'required|in:pending,confirmed,completed,cancelled',
         ]);
 
-        $daycare->update($validated);
+        $appointment->update($validated);
 
         return redirect()->route('admin.daycare.index')
-                        ->with('success', 'Registration updated successfully');
+                        ->with('success', 'Appointment updated successfully');
     }
 
-    public function destroy(Daycare $daycare)
+    public function destroy(Daycare $appointment)
     {
-        // Delete vaccination record file if exists
-        if ($daycare->vaccination_path) {
-            Storage::disk('public')->delete($daycare->vaccination_path);
+        if ($appointment->vaccination_path) {
+            Storage::disk('public')->delete($appointment->vaccination_path);
         }
 
-        $daycare->delete();
+        $appointment->delete();
 
         return redirect()->route('admin.daycare.index')
-                        ->with('success', 'Registration deleted successfully');
+                        ->with('success', 'Appointment deleted successfully');
     }
 
-    public function showConfirmation(Daycare $daycare){
+    public function showConfirmation(Daycare $appointment){
      
-        return view('orderconfirm', ['daycare' => $daycare]);
+        return view('daycareorderconfirm', ['appointment' => $appointment]);
     }
+
+    public function show(Daycare $appointment)
+{
+    return view('admin.daycare.show', compact('appointment'));
+}
 }

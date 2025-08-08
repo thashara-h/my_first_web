@@ -25,7 +25,7 @@
         <div class="max-w-4xl mx-auto">
             <!-- Header with back button -->
             <div class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold text-gray-800">Registration Details</h1>
+                <h1 class="text-2xl font-bold text-gray-800">Appointment Details</h1>
                 <a href="{{ url()->previous() }}" class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
                     <i class="fas fa-arrow-left mr-2"></i> Back
                 </a>
@@ -124,10 +124,10 @@
 
                 <!-- Card Footer -->
                 <div class="px-6 py-4 bg-gray-50 border-t flex justify-end space-x-3">
-                    <a href="{{ route('admin.daycare.edit', $appointment->id) }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
+                    <a href="{{ route('admin.spa.edit', $appointment->id) }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
                         <i class="fas fa-edit mr-2"></i> Edit
                     </a>
-                    <form action="{{ route('admin.daycare.destroy', $appointment->id) }}" method="POST">
+                    <form action="{{ route('admin.spa.destroy', $appointment->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center" onclick="return confirm('Are you sure you want to delete this appointment?')">

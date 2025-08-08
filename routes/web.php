@@ -13,6 +13,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\VeterinarycareController;
 use App\Http\Controllers\DaycareController;
+use App\Http\Controllers\SpaController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -264,16 +267,34 @@ Route::middleware(['auth'])->group(function () {
         ->name('orders.destroy');  
 });
 
-// Public routes
+/*// Public routes
 Route::post('/veterinary-appointments', [VeterinarycareController::class, 'store'])
     ->name('veterinary.store');
 
-Route::get('/orderconfirm/{appointment}', [VeterinarycareController::class, 'showConfirmation'])
-     ->name('orderconfirm');
+// Veterinary confirmation page
+Route::get('/veterinary/orderconfirm/{appointment}', [VeterinarycareController::class, 'showConfirmation'])
+    ->name('veterinary.orderconfirm');*/
+
+
+/*// Public routes
+Route::post('/daycare-appointments', [DaycareController::class, 'store'])
+    ->name('daycare.store');
+
+// Daycare confirmation page
+Route::get('/daycare/orderconfirm/{appointment}', [DaycareController::class, 'showConfirmation'])
+    ->name('daycare.orderconfirm');*/
+
+/*// Public routes
+Route::post('/spa-appointments', [SpaController::class, 'store'])
+    ->name('spa.store');
+
+// Daycare confirmation page
+Route::get('/spa/orderconfirm/{appointment}', [SpaController::class, 'showConfirmation'])
+    ->name('spa.orderconfirm');*/
 
 
 
-// Admin routes
+// Admin routes veterinary
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/veterinary-appointments', [VeterinarycareController::class, 'index'])
          ->name('admin.veterinary.index');
@@ -294,24 +315,81 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
     Route::post('/veterinary', [VeterinarycareController::class, 'store'])
         ->name('admin.veterinary.store');
+    Route::post('/veterinary-appointments', [VeterinarycareController::class, 'store'])
+    ->name('veterinary.store');
+
+    // Veterinary confirmation page
+    Route::get('/veterinary/orderconfirm/{appointment}', [VeterinarycareController::class, 'showConfirmation'])
+    ->name('veterinary.orderconfirm');
 
 
-    //daycare
+       
+});
 
-    Route::get('/admin/daycare/confirmation/{daycare}', [DaycarecareController::class, 'showConfirmation'])
-     ->name('confirmation');
-    Route::prefix('admin/daycare')->group(function () {
-    Route::get('/', [DaycareController::class, 'index'])->name('admin.daycare.index');
-    Route::get('/create', [DaycareController::class, 'create'])->name('admin.daycare.create');
-    Route::post('/daycare', [DaycareController::class, 'store'])->name('daycare.store');
-    Route::get('/{daycare}', [DaycareController::class, 'show'])->name('admin.daycare.show');
-    Route::get('/{daycare}/edit', [DaycareController::class, 'edit'])->name('admin.daycare.edit');
-    Route::patch('/{daycare}', [DaycareController::class, 'update'])->name('admin.daycare.update');
-    Route::delete('/{daycare}', [DaycareController::class, 'destroy'])->name('admin.daycare.destroy');
-    Route::get('/calendar', [DaycareController::class, 'calendar'])->name('admin.daycare.calendar');
-    Route::post('/{daycare}/approve', [DaycareController::class, 'approve'])->name('admin.daycare.approve');
-    Route::post('/{daycare}/reject', [DaycareController::class, 'reject'])->name('admin.daycare.reject');
-});    
+
+// Admin routes daycare
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/daycare-appointments', [DaycareController::class, 'index'])
+         ->name('admin.daycare.index');
+
+    Route::get('/daycare/add', [DaycareController::class, 'create'])->name('admin.daycare.create');     
+         
+    Route::get('/daycare-appointments/{appointment}', [DaycareController::class, 'show'])
+        ->name('admin.daycare.show');
+         
+    Route::get('/daycare-appointments/{appointment}/edit', [DaycareController::class, 'edit'])
+         ->name('admin.daycare.edit');
+         
+    Route::put('/daycare-appointments/{appointment}', [DaycareController::class, 'update'])
+         ->name('admin.daycare.update');
+         
+    Route::delete('/daycare-appointments/{appointment}', [DaycareController::class, 'destroy'])
+         ->name('admin.daycare.destroy');
+
+    Route::post('/daycare', [DaycareController::class, 'store'])
+        ->name('admin.daycare.store');
+
+    Route::post('/daycare-appointments', [DaycareController::class, 'store'])
+    ->name('daycare.store');
+
+    // Daycare confirmation page
+    Route::get('/daycare/orderconfirm/{appointment}', [DaycareController::class, 'showConfirmation'])
+    ->name('daycare.orderconfirm');
+
+});
+
+   // Admin routes spa
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/spa-appointments', [SpaController::class, 'index'])
+         ->name('admin.spa.index');
+
+    Route::get('/admin/spa/add', [SpaController::class, 'create'])->name('admin.spa.create');     
+         
+    Route::get('/spa-appointments/{appointment}', [SpaController::class, 'show'])
+        ->name('admin.spa.show');
+         
+    Route::get('/spa-appointments/{appointment}/edit', [SpaController::class, 'edit'])
+         ->name('admin.spa.edit');
+         
+    Route::put('/spa-appointments/{appointment}', [SpaController::class, 'update'])
+         ->name('admin.spa.update');
+         
+    Route::delete('/spa-appointments/{appointment}', [SpaController::class, 'destroy'])
+         ->name('admin.spa.destroy');
+
+    Route::post('/spa', [SpaController::class, 'store'])
+        ->name('admin.spa.store');
+
+    // Public routes
+    Route::post('/spa-appointments', [SpaController::class, 'store'])
+    ->name('spa.store');
+
+    // Daycare confirmation page
+    Route::get('/spa/orderconfirm/{appointment}', [SpaController::class, 'showConfirmation'])
+    ->name('spa.orderconfirm');
+
+
+       
 });
 
 

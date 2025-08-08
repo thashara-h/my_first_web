@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | PetCare</title>
+    <title>Manage Veterinary Appointments | PetCare Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -25,46 +25,15 @@
             }
         }
     </script>
-    <style>
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .scroll-animate.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-    </style>
 </head>
-<header class="bg-light shadow-lg sticky top-0 z-50  bg-opacity-4">
-  <div class="max-w-8xl mx-auto px-6 py-3 flex justify-between items-center">
-    
-
-    <!-- Navigation with hover effects -->
-    <nav class="hidden lg:block">
-      <ul class="flex space-x-10">
-        <li>
-          <a href="/homepage" class="relative px-2 py-1 text-gray-700 hover:text-purple-600 font-medium transition-all group">
-            <span>Home</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
-          </a>
-        </li>
-        
-        
-      </ul>
-    </nav>
-
-    
-  </div>
-</header>
+ 
 <body class="bg-gray-50 dark:bg-gray-900" x-data="adminDashboard">
     <div class="flex h-screen overflow-hidden">
         <!-- Mobile sidebar overlay -->
         <div x-show="mobileSidebarOpen" x-transition.opacity class="md:hidden fixed inset-0 bg-gray-900 bg-opacity-50 z-40"></div>
 
-        <!-- Sidebar -->
+        
+         <!-- Sidebar -->
         <div class="hidden md:flex md:flex-shrink-0 bg-gradient-to-br from-petpurple to-gray dark:from-dark dark:to-gray-800 border-r border-gray-200 dark:border-gray-700">
             <div class="flex flex-col w-full">
                 <!-- Logo -->
@@ -195,6 +164,10 @@
                 </div>
             </div>
         </div>
+                  
+                
+              
+        
 
         <!-- Main Content -->
         <div class="flex-1 overflow-auto">
@@ -207,205 +180,119 @@
                     <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center shadow-md mr-2">
                         <span class="text-white text-sm">🐾</span>
                     </div>
-                    <span class="text-lg font-bold text-white">PetCare Admin</span>
+                    <span class="text-lg font-bold text-white">Veterinary Appointments</span>
                 </div>
                 <div class="w-6"></div>
             </div>
             
-            <!-- Mobile sidebar -->
-            <div x-show="mobileSidebarOpen" @click.away="mobileSidebarOpen = false" class="md:hidden fixed inset-y-0 left-0 z-50 w-64 bg-gradient-to-br from-petpurple to-petgreen shadow-lg transform transition-transform duration-300 ease-in-out" :class="{'translate-x-0': mobileSidebarOpen, '-translate-x-full': !mobileSidebarOpen}">
-                <div class="flex items-center justify-between h-16 px-4 border-b border-gray-700">
-                    <div class="flex items-center">
-                        <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center shadow-md mr-2">
-                            <span class="text-white text-sm">🐾</span>
-                        </div>
-                        <span class="text-lg font-bold text-white">PetCare Admin</span>
-                    </div>
-                    <button @click="mobileSidebarOpen = false" class="text-white focus:outline-none">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-                <div class="h-full overflow-y-auto py-4">
-                    <!-- Same navigation as desktop sidebar -->
-                    <nav class="px-4 space-y-1">
-                        <a href="#" @click="activeCrudSection = ''; mobileSidebarOpen = false" class="flex items-center px-3 py-3 text-sm font-medium rounded-lg bg-petpurple text-white">
-                            <i class="fas fa-tachometer-alt mr-3"></i>
-                            Dashboard
-                        </a>
-                        
-                        <!-- Pets -->
-                        <div>
-                            <button @click="activeCrudSection = activeCrudSection === 'pets' ? '' : 'pets'" class="w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-lg hover:bg-petpurple hover:text-white">
-                                <span><i class="fas fa-paw mr-3"></i> Manage Pets</span>
-                                <i class="fas fa-chevron-down text-xs transition-transform duration-200" :class="{'rotate-180': activeCrudSection === 'pets'}"></i>
-                            </button>
-                            <div x-show="activeCrudSection === 'pets'" class="mt-2 pl-8 space-y-1">
-                                <a href="#" @click="mobileSidebarOpen = false" class="block px-3 py-2 text-sm rounded-lg hover:bg-petpurple hover:text-white">
-                                    <i class="fas fa-list mr-2"></i> View All Pets
-                                </a>
-                                <a href="#" @click="showAddPetModal = true; mobileSidebarOpen = false" class="block px-3 py-2 text-sm rounded-lg hover:bg-petpurple hover:text-white">
-                                    <i class="fas fa-plus-circle mr-2"></i> Add New Pet
-                                </a>
-                                <a href="#" @click="mobileSidebarOpen = false" class="block px-3 py-2 text-sm rounded-lg hover:bg-petpurple hover:text-white">
-                                    <i class="fas fa-edit mr-2"></i> Edit Pets
-                                </a>
-                                <a href="#" @click="mobileSidebarOpen = false" class="block px-3 py-2 text-sm rounded-lg hover:bg-petpurple hover:text-white">
-                                    <i class="fas fa-trash-alt mr-2"></i> Delete Pets
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Other mobile menu items... -->
-                    </nav>
-                </div>
-            </div>
-
             <!-- Content Area -->
             <main class="p-6 bg-gradient-to-br from-petpurple to-petgreen dark:from-petpurple dark:to-gray-900">
                 <div class="max-w-7xl mx-auto">
                     <!-- Header -->
                     <div class="flex justify-between items-center mb-8">
-                        <h1 class="text-2xl font-bold text-gray-800 dark:text-white" x-text="getActiveSectionTitle()"></h1>
+                        <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Spa and Grooming Appointments</h1>
                         <div class="flex space-x-3">
                             <button class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 flex items-center">
                                 <i class="fas fa-download mr-2"></i> Export
                             </button>
-                            <template x-if="activeCrudSection === 'pets'">
-                                <button @click="showAddPetModal = true" class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                    <i class="fas fa-plus mr-2"></i> Add New Pet
-                                </button>
-                            </template>
-                            <template x-if="activeCrudSection === 'users'">
-                                <button class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                    <i class="fas fa-user-plus mr-2"></i> Add New User
-                                </button>
-                            </template>
+                            <a href="{{ route('admin.spa.create') }}" class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
+                                <i class="fas fa-plus mr-2"></i> New Appointment
+                            </a>
                         </div>
                     </div>
 
                     
 
-                    <!-- CRUD Content Sections -->
-                    <!-- Pets Section -->
+                    <!-- Appointments Table -->
                     <div class="bg-white dark:bg-gray-700 rounded-lg shadow p-6">
-                        <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Manage Pets</h2>
-                            <a href="/addpet" class="bg-petpurple hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
-                            <i class="fas fa-plus mr-2"></i> Add New Pet
-                            </a>
-                        </div>
                         @if(Session::has('success'))
-                        <span class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded">{{Session::get('success')}}</span>
+                        <div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded">
+                            {{ Session::get('success') }}
+                        </div>
                         @endif
-                         @if(Session::has('fail'))
-                        <span class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded">{{Session::get('fail')}}</span>
+                        @if(Session::has('fail'))
+                        <div class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded">
+                            {{ Session::get('fail') }}
+                        </div>
                         @endif
                         
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
                                 <thead class="bg-gray-50 dark:bg-gray-600">
                                     <tr>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Id</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Name</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Breed</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Age</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Health status</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Registration Date</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Last Update</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider" colspan="2">Actions</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">ID</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Pet</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Owner</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Service</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Date</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @if(!empty($something) && count($something) > 0)
-
-                                      @foreach($all_pets as $item)
-                                        <tr>
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>{{$item->pet_name}}</td>
-                                            <td>{{$item->pet_type}}</td>
-                                            <td>{{$item->age}}</td>
-                                            <td>{{$item->health_status}}</td>
-                                            <td>{{$item->created_at}}</td>
-                                            <td>{{$item->updated_at}}</td>
-                                            <td><a href="/edit/{{$item->id}}" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Edit</a></td>
-                                            <td><a href="/delete/{{$item->id}}" class="text-red-600 hover:text-red-800 font-medium text-sm">Delete</a></td>
-                                        </tr>
-                                      @endforeach
-                                    @else
+                                <tbody class="bg-white dark:bg-gray-700 divide-y divide-gray-200 dark:divide-gray-600">
+                                    @forelse($appointments as $appointment)
                                     <tr>
-                                        <td colspan="9">No Pet Found!</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">#{{ $appointment->id }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="font-medium text-gray-900 dark:text-white">{{ $appointment->pet_name }}</div>
+                                            <div class="text-sm text-gray-500 dark:text-gray-300">{{ $appointment->breed }}, {{ $appointment->age }}</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900 dark:text-white">{{ $appointment->owner_name }}</div>
+                                            <div class="text-sm text-gray-500 dark:text-gray-300">{{ $appointment->contact_number }}</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+                                            {{ $appointment->service_name }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+                                            {{ \Carbon\Carbon::parse($appointment->appointment_date)->format('M d, Y') }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                                                {{ $appointment->status === 'confirmed' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 
+                                                   ($appointment->status === 'completed' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' : 
+                                                   ($appointment->status === 'cancelled' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200')) }}">
+                                                {{ ucfirst($appointment->status) }}
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <a href="{{ route('admin.spa.show', $appointment->id) }}" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300 mr-3">
+                                                <i class="fas fa-eye mr-1"></i> View
+                                            </a>
+                                            <a href="{{ route('admin.spa.edit', $appointment->id) }}" class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300 mr-3">
+                                                <i class="fas fa-edit mr-1"></i> Edit
+                                            </a>
+                                            <form action="{{ route('admin.spa.destroy', $appointment->id) }}" method="POST" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300" onclick="return confirm('Are you sure?')">
+                                                    <i class="fas fa-trash-alt mr-1"></i> Delete
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
-                                    @endif
+                                    @empty
+                                    <tr>
+                                        <td colspan="7" class="px-6 py-4 text-center text-gray-500 dark:text-gray-300">No appointments found</td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
-                                
                             </table>
                         </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            {{ $appointments->links() }}
+                        </div>
                     </div>
-
-            </div>
-
+                </div>
             </main>
         </div>
     </div>
-
-        <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                            <span class="text-white font-bold text-sm">🐾</span>
-                        </div>
-                        <span class="text-xl font-bold">PawMart</span>
-                    </div>
-                    <p class="text-gray-400">
-                        Your trusted partner in pet care, serving dogs, cats, parrots, and birds with love and expertise.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Pet Food</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Services</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Pet Grooming</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Veterinary Care</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Pet Sitting</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Training</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Contact Info</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>📧 info@pawmart.com</li>
-                        <li>📞 +94 414267844</li>
-                        <li>📍 123 Pet Care Avenue</li>
-                        <li>⏰ Mon-Fri: 8AM-8PM</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 PawMart. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
 
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('adminDashboard', () => ({
                 darkMode: localStorage.getItem('darkMode') === 'true',
                 mobileSidebarOpen: false,
-                activeCrudSection: '',
-                showAddPetModal: false,
-
-                
                 
                 init() {
                     // Check for saved dark mode preference
@@ -416,9 +303,6 @@
                     
                     // Apply dark mode on init
                     this.toggleDarkMode(this.darkMode);
-                    
-                    // Set up scroll animations
-                    this.setupScrollAnimations();
                 },
                 
                 toggleDarkMode(value = null) {
@@ -430,33 +314,6 @@
                     } else {
                         document.documentElement.classList.remove('dark');
                     }
-                },
-                
-                getActiveSectionTitle() {
-                    if (!this.activeCrudSection) return 'Dashboard Overview';
-                    
-                    const titles = {
-                        'pets': 'Manage Pets',
-                        'users': 'Manage Users',
-                        'appointments': 'Manage Appointments',
-                        'products': 'Manage Products'
-                    };
-                    
-                    return titles[this.activeCrudSection] || '';
-                },
-                
-                setupScrollAnimations() {
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add('animate');
-                            }
-                        });
-                    }, { threshold: 0.1 });
-                    
-                    document.querySelectorAll('.scroll-animate').forEach(el => {
-                        observer.observe(el);
-                    });
                 }
             }));
         });

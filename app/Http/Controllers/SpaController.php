@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Veterinarycare;
+use App\Models\Spa;
 use Illuminate\Http\Request;
 
-class VeterinarycareController extends Controller
+class SpaController extends Controller
 {
-   
-public function create()
+    public function create()
 {
-    return view('admin.veterinary.add'); 
+    return view('admin.spa.add'); 
 } 
 
 public function store(Request $request)
@@ -31,15 +30,15 @@ public function store(Request $request)
     $validated['status'] = $validated['status'] ?? 'pending';
 
     try {
-        $appointment = Veterinarycare::create($validated);
+        $appointment = Spa::create($validated);
         
         if (auth()->check() && auth()->user()->role === 'admin') {
         // Admin created appointment → go back to admin list
-        return redirect()->route('admin.veterinary.index')->with('success', 'Appointment created successfully!');
+        return redirect()->route('admin.spa.index')->with('success', 'Appointment created successfully!');
     }
 
         // Pet owner → show confirmation page
-        return redirect()->route('veterinary.orderconfirm', $appointment->id);
+        return redirect()->route('spa.orderconfirm', $appointment->id);
 
             
     } catch (\Exception $e) {
@@ -56,19 +55,19 @@ public function store(Request $request)
 
     public function index()
     {
-        $appointments = Veterinarycare::orderBy('appointment_date', 'desc')
+        $appointments = Spa::orderBy('appointment_date', 'desc')
                         
                         ->paginate(10);
 
-        return view('admin.veterinary.index', compact('appointments'));
+        return view('admin.spa.index', compact('appointments'));
     }
 
-    public function edit(Veterinarycare $appointment)
+    public function edit(Spa $appointment)
     {
-        return view('admin.veterinary.edit', compact('appointment'));
+        return view('admin.spa.edit', compact('appointment'));
     }
 
-     public function update(Request $request, Veterinarycare $appointment)
+     public function update(Request $request, Spa $appointment)
     {
         $validated = $request->validate([
             'status' => 'required|in:pending,confirmed,completed,cancelled',
@@ -76,11 +75,11 @@ public function store(Request $request)
 
         $appointment->update($validated);
 
-        return redirect()->route('admin.veterinary.index')
+        return redirect()->route('admin.spa.index')
                         ->with('success', 'Appointment updated successfully');
     }
 
-    public function destroy(Veterinarycare $appointment)
+    public function destroy(Spa $appointment)
     {
         if ($appointment->vaccination_path) {
             Storage::disk('public')->delete($appointment->vaccination_path);
@@ -88,19 +87,17 @@ public function store(Request $request)
 
         $appointment->delete();
 
-        return redirect()->route('admin.veterinary.index')
+        return redirect()->route('admin.spa.index')
                         ->with('success', 'Appointment deleted successfully');
     }
 
-    public function showConfirmation(Veterinarycare $appointment){
+    public function showConfirmation(Spa $appointment){
      
-        return view('veterinaryorderconfirm', ['appointment' => $appointment]);
+        return view('spaorderconfirm', ['appointment' => $appointment]);
     }
 
-    public function show(Veterinarycare $appointment)
+    public function show(Spa $appointment)
 {
-    return view('admin.veterinary.show', compact('appointment'));
+    return view('admin.spa.show', compact('appointment'));
 }
-
-
 }
